@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="whatsup1">WHATSUP</string>
     <string name="counter">Click Me!</string>
+    <string name="editButton">Edit</string>
+    <string name="addCounter">Add</string>
 
 </resources>
