@@ -8,5 +8,6 @@
     <string name="counter">Click Me!</string>
     <string name="editButton">Edit</string>
     <string name="addCounter">Add</string>
+    <string name="saveChange">Save</string>
 
 </resources>
