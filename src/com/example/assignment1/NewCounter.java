@@ -15,7 +15,7 @@ public class NewCounter extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_counter_page);
 		
-		Button button = (Button) findViewById(R.id.clicker);
+		Button button = (Button) findViewById(R.id.button1);
 		button.setOnClickListener(this);
 	}
 
