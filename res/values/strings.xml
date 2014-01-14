@@ -9,5 +9,6 @@
     <string name="editButton">Edit</string>
     <string name="addCounter">Add</string>
     <string name="saveChange">Save</string>
+    <string name="cancelButton">Cancel</string>
 
 </resources>
