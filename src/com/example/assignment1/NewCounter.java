@@ -8,16 +8,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-
-public class MainPage extends Activity implements OnClickListener {
+public class NewCounter extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_page);
+		setContentView(R.layout.new_counter_page);
 		
 		Button button = (Button) findViewById(R.id.clicker);
-		
 		button.setOnClickListener(this);
 	}
 
@@ -31,7 +29,7 @@ public class MainPage extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		Intent intent = new Intent(arg0.getContext(), NewCounter.class);
+		Intent intent = new Intent(arg0.getContext(), MainPage.class);
 		startActivityForResult(intent, 0);
 	}
 
