@@ -13,5 +13,6 @@
     <string name="inputName">Name</string>
     <string name="counterName">Counter Name</string>
     <string name="counterName1">Counter Name:</string>
+    <string name="readB">read</string>
 
 </resources>
