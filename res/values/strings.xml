@@ -10,5 +10,8 @@
     <string name="addCounter">Add</string>
     <string name="saveChange">Save</string>
     <string name="cancelButton">Cancel</string>
+    <string name="inputName">Name</string>
+    <string name="counterName">Counter Name</string>
+    <string name="counterName1">Counter Name:</string>
 
 </resources>

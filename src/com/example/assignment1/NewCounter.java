@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class NewCounter extends Activity implements OnClickListener {
 
@@ -20,6 +21,11 @@ public class NewCounter extends Activity implements OnClickListener {
 		
 		Button cancelbutton = (Button) findViewById(R.id.cancelButton);
 		cancelbutton.setOnClickListener(this);
+		
+		//final EditText counterName = (EditText) findViewById(R.id.counterView);
+		
+		//String FILENAME = counterName;
+		
 	}
 
 	@Override
