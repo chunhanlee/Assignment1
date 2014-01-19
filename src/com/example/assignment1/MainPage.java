@@ -3,21 +3,23 @@ package com.example.assignment1;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -74,9 +76,19 @@ public class MainPage extends Activity implements OnClickListener {
 			System.out.println(counterArray[i1]);
 		}
 		ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, counterArray);
-		ListView cList = (ListView) findViewById(R.id.listView1);
-		cList.setAdapter(adapter);
+		lv = (ListView) findViewById(R.id.list1);
+		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();
+		
+
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+				String countersname = ((TextView) view).getText().toString();
+				Intent i = new Intent(getApplicationContext(), CounterActivity.class);
+				i.putExtra("CounterName", countersname);
+				startActivity(i);
+			}
+		});
 		
 			/*
 		SharedPreferences counterList = getSharedPreferences("counters.txt", MODE_WORLD_READABLE);

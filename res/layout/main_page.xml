@@ -17,7 +17,7 @@
         android:text="@string/addCounter" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/list1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/clicker" >

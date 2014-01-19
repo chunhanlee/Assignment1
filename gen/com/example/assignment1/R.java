@@ -29,13 +29,13 @@ public final class R {
         public static final int clicker=0x7f080001;
         public static final int countView=0x7f080000;
         public static final int counterName=0x7f080006;
-        public static final int listView1=0x7f080002;
+        public static final int list1=0x7f080002;
         public static final int readB=0x7f080007;
         public static final int saveButton=0x7f080003;
         public static final int textView2=0x7f080005;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int counter_page=0x7f030000;
         public static final int main_page=0x7f030001;
         public static final int new_counter_page=0x7f030002;
     }
