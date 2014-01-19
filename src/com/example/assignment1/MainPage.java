@@ -1,5 +1,6 @@
 package com.example.assignment1;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -7,10 +8,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainPage extends Activity implements OnClickListener {
 
+	String dataToCollect;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,6 +22,11 @@ public class MainPage extends Activity implements OnClickListener {
 		Button button = (Button) findViewById(R.id.clicker);
 		
 		button.setOnClickListener(this);
+		Intent intent1 = getIntent();
+		dataToCollect = intent1.getStringExtra("KeyToAccessData");
+		if (dataToCollect != ""){
+			Toast.makeText(this, dataToCollect, Toast.LENGTH_LONG).show();
+		}
 	}
 
 	@Override

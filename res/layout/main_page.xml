@@ -24,4 +24,23 @@
         android:layout_alignParentTop="true"
         android:text="@string/addCounter" />
 
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/countView" >
+    </ListView>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countView"
+        android:layout_marginTop="49dp"
+        android:layout_toRightOf="@+id/listView1" >
+
+        
+    </ScrollView>
+
 </RelativeLayout>

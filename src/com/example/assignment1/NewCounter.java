@@ -76,8 +76,12 @@ public class NewCounter extends Activity implements OnClickListener {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			String dataToPass = cName;
 			//Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
 			//startActivityForResult(intent1, 0);
+			Intent intent1 = new Intent(this, MainPage.class);
+			intent1.putExtra("KeyToAccessData", dataToPass);
+			startActivityForResult(intent1, 0);
 			break;
 		case R.id.readB:
 			counterName = (EditText) findViewById(R.id.counterName);
