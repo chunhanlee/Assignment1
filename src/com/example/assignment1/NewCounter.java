@@ -68,10 +68,14 @@ public class NewCounter extends Activity implements OnClickListener {
 			cName = counterName.getText().toString();
 			FILENAME = cName + ".txt";
 			
-			ncount = cName + " Count: 0";
+			ncount = cName + " Count: 0 ";
 			try {
 				fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
 				fos.write(ncount.getBytes());
+				fos.close();
+				fos = openFileOutput("counterList.txt", Context.MODE_PRIVATE);
+				cName = " "+ cName +" ";
+				fos.write(cName.getBytes());
 				fos.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -88,7 +92,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			cName = counterName.getText().toString();
 			FILENAME = cName + ".txt";
 			try {
-				fis = openFileInput(FILENAME);
+				fis = openFileInput("counterList.txt");
 				isr = new InputStreamReader(fis);	
 				br = new BufferedReader(isr);
 			

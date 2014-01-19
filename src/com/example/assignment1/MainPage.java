@@ -1,6 +1,11 @@
 package com.example.assignment1;
 
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +17,13 @@ import android.widget.Toast;
 
 
 public class MainPage extends Activity implements OnClickListener {
-
+	//private ListView lv;
+	//private ArrayList<String> strArr;
+	//private ArrayAdapter<String> adapter;
+	private FileInputStream fis;
+	private InputStreamReader isr;
+	private BufferedReader br;
+	
 	String dataToCollect;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +38,35 @@ public class MainPage extends Activity implements OnClickListener {
 		if (dataToCollect != ""){
 			Toast.makeText(this, dataToCollect, Toast.LENGTH_LONG).show();
 		}
+		//lv = (ListView) findViewById(R.id.listView1);
+		//strArr = new ArrayList<String>();
+		//for (int i = 0; i <2; i++){
+		//	strArr.add("Row:" + dataToCollect);
+		//}
+		//adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, strArr);
+		//lv.setAdapter(adapter);
+		//adapter.notifyDataSetChanged();
+		/*
+		try {
+			fis = openFileInput("counterList.txt");
+			isr = new InputStreamReader(fis);		
+			br = new BufferedReader(isr);
+		
+			String sLine = null;
+			String out = "";
+			try {
+				while ((sLine = br.readLine())!=null){
+					out += sLine;
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			Toast.makeText(this, out, Toast.LENGTH_LONG).show();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		*/	
+		
 	}
 
 	@Override
