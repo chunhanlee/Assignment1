@@ -35,9 +35,19 @@ public class CounterActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		curCount++;
-		count.setText(curCount + " times!");
+		switch(arg0.getId())
+		{
+		case R.id.backButton:
+			Intent intent = new Intent(arg0.getContext(), MainPage.class);
+			startActivityForResult(intent, 0);
+		//case R.id.summaryButton:
+			
+		//case R.id.editButton:
+			
+		case R.id.clicker:
+			curCount++;
+			count.setText(curCount + " times!");
+		}
 	}
 
 }

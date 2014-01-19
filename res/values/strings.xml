@@ -14,5 +14,7 @@
     <string name="counterName">Counter Name</string>
     <string name="counterName1">Counter Name:</string>
     <string name="readB">read</string>
+    <string name="backButton">Back</string>
+    <string name="summaryButton">Summary</string>
 
 </resources>
