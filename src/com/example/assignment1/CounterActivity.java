@@ -19,11 +19,20 @@ public class CounterActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.counter_page);
 		
 		count = (TextView) findViewById(R.id.countView);
-		Button button = (Button) findViewById(R.id.clicker);
+		Button click = (Button) findViewById(R.id.clicker);
 		Intent i = getIntent();
 		String countersName = i.getStringExtra("CounterName");
-		button.setText(countersName);
-		button.setOnClickListener(this);
+		click.setText(countersName);
+		click.setOnClickListener(this);
+		
+		Button back = (Button) findViewById(R.id.backButton);
+		back.setOnClickListener(this);
+		
+		Button summary = (Button) findViewById(R.id.summaryButton);
+		summary.setOnClickListener(this);
+		
+		Button edit = (Button) findViewById(R.id.editButton);
+		edit.setOnClickListener(this);
 	}
 
 	@Override
@@ -40,6 +49,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 		case R.id.backButton:
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
+			break;
 		//case R.id.summaryButton:
 			
 		//case R.id.editButton:
@@ -47,6 +57,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 		case R.id.clicker:
 			curCount++;
 			count.setText(curCount + " times!");
+			break;
 		}
 	}
 

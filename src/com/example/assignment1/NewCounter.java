@@ -60,6 +60,7 @@ public class NewCounter extends Activity implements OnClickListener {
 		case R.id.cancelButton:
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
+			break;
 			
 		case R.id.saveButton:
 			counterName = (EditText) findViewById(R.id.counterName);

@@ -3,10 +3,12 @@ package com.example.assignment1;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -32,6 +34,8 @@ public class MainPage extends Activity implements OnClickListener {
 	private String[] counterArray;
 	private String out = "";
 	String dataToCollect;
+	private String cName;
+	private FileOutputStream fos;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,12 +72,21 @@ public class MainPage extends Activity implements OnClickListener {
 			}
 			Toast.makeText(this, out, Toast.LENGTH_LONG).show();
 			} catch (IOException e) {
-			e.printStackTrace();
+				try{
+					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
+					cName = " "+ cName +" ";
+					fos.write(cName.getBytes());
+					fos.close();
+				}catch (IOException e1) {
+					e1.printStackTrace();
+				}
 		}
 		counterArray = out.split(" ");
+		/*
 		for (int i1 = 0; i1 < counterArray.length; i1++){
 			System.out.println(counterArray[i1]);
 		}
+		*/
 		ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, counterArray);
 		lv = (ListView) findViewById(R.id.list1);
 		lv.setAdapter(adapter);
