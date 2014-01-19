@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -69,17 +71,21 @@ public class NewCounter extends Activity implements OnClickListener {
 			FILENAME = cName + ".txt";
 			
 			ncount = cName + " Count: 0 ";
-			try {
-				fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-				fos.write(ncount.getBytes());
-				fos.close();
-				fos = openFileOutput("counterList.txt", Context.MODE_PRIVATE);
-				cName = " "+ cName +" ";
-				fos.write(cName.getBytes());
-				fos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+
+			SharedPreferences counters = getSharedPreferences("counters.txt", MODE_APPEND);
+			Editor edit = counters.edit();
+			edit.clear();
+			edit.putString("CounterName", cName.trim());
+			edit.putString("CountVal", "Count: 0");
+			edit.commit();
+				
+				//fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+				//fos.write(ncount.getBytes());
+				//fos.close();
+				//fos = openFileOutput("counterList.txt", Context.MODE_PRIVATE);
+				//cName = " "+ cName +" ";
+				//fos.write(cName.getBytes());
+				//fos.close();
 			String dataToPass = cName;
 			//Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
 			//startActivityForResult(intent1, 0);

@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -65,7 +66,12 @@ public class MainPage extends Activity implements OnClickListener {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		*/	
+		*/
+		SharedPreferences counterList = getSharedPreferences("counters.txt", MODE_WORLD_READABLE);
+		String cName = counterList.getString("CounterName", "hey3");
+		String cCount = counterList.getString("CountVal", "");
+		System.out.println(cName);
+		System.out.println(cCount);
 		
 	}
 
