@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Date;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -26,14 +27,11 @@ import android.widget.Toast;
 
 public class MainPage extends Activity implements OnClickListener {
 	private ListView lv;
-	//private ArrayList<String> strArr;
-	//private ArrayAdapter<String> adapter;
 	private FileInputStream fis;
 	private InputStreamReader isr;
 	private BufferedReader br;
 	private String[] counterArray;
 	private String out = "";
-	String dataToCollect;
 	private String cName;
 	private FileOutputStream fos;
 	@Override
@@ -42,8 +40,8 @@ public class MainPage extends Activity implements OnClickListener {
 		setContentView(R.layout.main_page);
 		
 		Button button = (Button) findViewById(R.id.clicker);
-		
 		button.setOnClickListener(this);
+		System.out.println(new Date());
 		/*
 		Intent intent1 = getIntent();
 		dataToCollect = intent1.getStringExtra("KeyToAccessData");
@@ -71,44 +69,39 @@ public class MainPage extends Activity implements OnClickListener {
 				out += sLine;
 			}
 			Toast.makeText(this, out, Toast.LENGTH_LONG).show();
+			counterArray = out.split(" ");
 			} catch (IOException e) {
 				try{
 					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-					cName = " "+ cName +" ";
+					cName = " "+ cName +"Count:0 ";
 					fos.write(cName.getBytes());
 					fos.close();
 				}catch (IOException e1) {
 					e1.printStackTrace();
 				}
 		}
-		counterArray = out.split(" ");
+
 		/*
 		for (int i1 = 0; i1 < counterArray.length; i1++){
 			System.out.println(counterArray[i1]);
 		}
 		*/
+		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
 		ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, counterArray);
 		lv = (ListView) findViewById(R.id.list1);
 		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();
 		
-
+		//http://www.androidhive.info/2011/10/android-listview-tutorial/
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 				String countersname = ((TextView) view).getText().toString();
 				Intent i = new Intent(getApplicationContext(), CounterActivity.class);
 				i.putExtra("CounterName", countersname);
 				startActivity(i);
+				finish();
 			}
 		});
-		
-			/*
-		SharedPreferences counterList = getSharedPreferences("counters.txt", MODE_WORLD_READABLE);
-		String cName = counterList.getString("CounterName", "hey3");
-		String cCount = counterList.getString("CountVal", "");
-		System.out.println(cName);
-		System.out.println(cCount);
-		*/
 	}
 
 	@Override
@@ -120,9 +113,9 @@ public class MainPage extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
 		Intent intent = new Intent(arg0.getContext(), NewCounter.class);
 		startActivityForResult(intent, 0);
+		finish();
 	}
 
 }

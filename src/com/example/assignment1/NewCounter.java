@@ -55,33 +55,28 @@ public class NewCounter extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
+		
+		//http://stackoverflow.com/questions/3320115/android-onclicklistener-identify-a-button
 		switch(arg0.getId())
 		{
 		case R.id.cancelButton:
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
-			break;
+			finish();
 			
 		case R.id.saveButton:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
 			FILENAME = cName + ".txt";
+			ncount = cName + " Count:0 ";
 			
-			ncount = cName + " Count: 0 ";
-/*
-			SharedPreferences counters = getSharedPreferences("counters.txt", MODE_APPEND);
-			Editor edit = counters.edit();
-			edit.clear();
-			edit.putString("CounterName", cName.trim());
-			edit.putString("CountVal", "Count: 0");
-			edit.commit();
-		*/
+			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			try{
 				fos = openFileOutput(FILENAME, Context.MODE_APPEND);
 				fos.write(ncount.getBytes());
 				fos.close();
 				fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-				cName = " "+ cName +" ";
+				cName = " "+ cName +" Count:0 ";
 				fos.write(cName.getBytes());
 				fos.close();
 			}catch (IOException e) {
@@ -96,7 +91,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			intent1.putExtra("KeyToAccessData", dataToPass);
 			startActivityForResult(intent1, 0);
 			*/
-			break;
+			finish();
 		case R.id.readB:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();

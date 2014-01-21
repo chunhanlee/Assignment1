@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CounterActivity extends Activity implements OnClickListener {
+public class EditPage extends Activity implements OnClickListener {
 
 	TextView count;
 	int curCount = 0;
@@ -48,7 +48,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 		switch(arg0.getId())
 		{
 		case R.id.backButton:
-			Intent intent = new Intent(arg0.getContext(), MainPage.class);
+			Intent intent = new Intent(arg0.getContext(), CounterActivity.class);
 			startActivityForResult(intent, 0);
 			break;
 		//case R.id.summaryButton:
