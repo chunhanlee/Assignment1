@@ -16,5 +16,7 @@
     <string name="readB">read</string>
     <string name="backButton">Back</string>
     <string name="summaryButton">Summary</string>
+    <string name="resetButton">Reset Count</string>
+    <string name="deleteButton">Delete Counter</string>
 
 </resources>

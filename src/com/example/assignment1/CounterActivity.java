@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 public class CounterActivity extends Activity implements OnClickListener {
 
-	TextView count;
+	private TextView count;
 	int curCount = 0;
+	private String countersName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 		count = (TextView) findViewById(R.id.countView);
 		Button click = (Button) findViewById(R.id.clicker);
 		Intent i = getIntent();
-		String countersName = i.getStringExtra("CounterName");
+		countersName = i.getStringExtra("CounterName");
 		click.setText(countersName);
 		click.setOnClickListener(this);
 		
@@ -30,10 +31,10 @@ public class CounterActivity extends Activity implements OnClickListener {
 		/*
 		Button summary = (Button) findViewById(R.id.summaryButton);
 		summary.setOnClickListener(this);
-		
+		*/
 		Button edit = (Button) findViewById(R.id.editButton);
 		edit.setOnClickListener(this);
-		*/
+		
 	}
 
 	@Override
@@ -53,8 +54,12 @@ public class CounterActivity extends Activity implements OnClickListener {
 			break;
 		//case R.id.summaryButton:
 			
-		//case R.id.editButton:
-			
+		case R.id.editButton:
+			String dataToPass = countersName;
+			Intent intent2 = new Intent(this, EditPage.class);
+			intent2.putExtra("CounterName", dataToPass);
+			startActivityForResult(intent2, 0);
+			break;
 		case R.id.clicker:
 			curCount++;
 			count.setText(curCount + " times!");

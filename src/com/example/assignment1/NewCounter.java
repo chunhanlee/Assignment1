@@ -63,7 +63,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
 			finish();
-			
+			break;
 		case R.id.saveButton:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
@@ -92,6 +92,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			startActivityForResult(intent1, 0);
 			*/
 			finish();
+			break;
 		case R.id.readB:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();

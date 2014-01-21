@@ -24,16 +24,18 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000b;
+        public static final int action_settings=0x7f08000d;
         public static final int backButton=0x7f080000;
-        public static final int cancelButton=0x7f080007;
+        public static final int cancelButton=0x7f080006;
         public static final int clicker=0x7f080003;
         public static final int countView=0x7f080004;
-        public static final int counterName=0x7f080009;
+        public static final int counterName=0x7f08000a;
+        public static final int deleteButton=0x7f080007;
         public static final int editButton=0x7f080002;
-        public static final int list1=0x7f080005;
-        public static final int readB=0x7f08000a;
-        public static final int saveButton=0x7f080006;
+        public static final int list1=0x7f08000b;
+        public static final int readB=0x7f08000c;
+        public static final int resetButton=0x7f080009;
+        public static final int saveButton=0x7f080005;
         public static final int summaryButton=0x7f080001;
         public static final int textView2=0x7f080008;
     }
@@ -55,10 +57,12 @@ public final class R {
         public static final int counter=0x7f050004;
         public static final int counterName=0x7f05000a;
         public static final int counterName1=0x7f05000b;
+        public static final int deleteButton=0x7f050010;
         public static final int editButton=0x7f050005;
         public static final int hello_world=0x7f050002;
         public static final int inputName=0x7f050009;
         public static final int readB=0x7f05000c;
+        public static final int resetButton=0x7f05000f;
         public static final int saveChange=0x7f050007;
         public static final int summaryButton=0x7f05000e;
         public static final int whatsup1=0x7f050003;
