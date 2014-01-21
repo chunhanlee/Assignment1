@@ -140,6 +140,11 @@ public class EditPage extends Activity implements OnClickListener {
 			ContextWrapper c = new ContextWrapper(this);
 			String filepath = c.getFilesDir().getPath().toString() + "/counterList.txt";
 			file = new File(filepath);
+			
+
+			ContextWrapper c1 = new ContextWrapper(this);
+			String dpath = c1.getFilesDir().getPath().toString() + "/"+ FILENAME;
+			File dfile = new File(dpath);
 			try {
 				temp = File.createTempFile("file", ".txt", file.getParentFile());
 			} catch (IOException e) {
@@ -172,6 +177,9 @@ public class EditPage extends Activity implements OnClickListener {
 			}
 			file.delete();
 			temp.renameTo(file);
+			if (dfile.delete()){
+				System.out.println("true");
+			}
 			Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent4, 0);
 			finish();
