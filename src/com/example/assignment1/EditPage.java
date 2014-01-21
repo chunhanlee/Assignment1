@@ -177,9 +177,7 @@ public class EditPage extends Activity implements OnClickListener {
 			}
 			file.delete();
 			temp.renameTo(file);
-			if (dfile.delete()){
-				System.out.println("true");
-			}
+			dfile.delete();
 			Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent4, 0);
 			finish();
