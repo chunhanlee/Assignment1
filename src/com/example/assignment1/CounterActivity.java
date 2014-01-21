@@ -55,9 +55,9 @@ public class CounterActivity extends Activity implements OnClickListener {
 		//case R.id.summaryButton:
 			
 		case R.id.editButton:
-			String dataToPass = countersName;
+			String dTP = countersName;
 			Intent intent2 = new Intent(this, EditPage.class);
-			intent2.putExtra("CounterName", dataToPass);
+			intent2.putExtra("CounterName", dTP);
 			startActivityForResult(intent2, 0);
 			break;
 		case R.id.clicker:

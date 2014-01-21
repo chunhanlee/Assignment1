@@ -67,32 +67,43 @@ public class NewCounter extends Activity implements OnClickListener {
 		case R.id.saveButton:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
+			cName = cName.replaceAll("\\s", "");
 			FILENAME = cName + ".txt";
 			ncount = cName + " Count:0 ";
-			
 			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			try{
-				fos = openFileOutput(FILENAME, Context.MODE_APPEND);
-				fos.write(ncount.getBytes());
-				fos.close();
-				fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-				cName = " "+ cName +" Count:0 ";
-				fos.write(cName.getBytes());
-				fos.close();
+				System.out.println(counterName);
+				System.out.println(cName);
+				System.out.println(FILENAME);
+				if (cName != "counterList" || cName != null){
+					System.out.println("Im here!");
+					fos = openFileOutput(FILENAME, Context.MODE_APPEND);
+					fos.write(ncount.getBytes());
+					fos.close();
+					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
+					cName = " "+ cName +" Count:0 ";
+					fos.write(cName.getBytes());
+					fos.close();
+					Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
+					startActivityForResult(intent1, 0);
+					finish();
+					break;
+				}else{
+					Toast.makeText(this, "Cannot create this counter name!", Toast.LENGTH_LONG).show();
+					break;
+				}
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
 			
-			Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
-			startActivityForResult(intent1, 0);
+
 			/*
 			String dataToPass = cName;
 			Intent intent1 = new Intent(this, MainPage.class);
 			intent1.putExtra("KeyToAccessData", dataToPass);
 			startActivityForResult(intent1, 0);
 			*/
-			finish();
-			break;
+
 		case R.id.readB:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();

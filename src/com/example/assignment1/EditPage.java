@@ -1,13 +1,20 @@
 package com.example.assignment1;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -28,10 +35,15 @@ public class EditPage extends Activity implements OnClickListener {
 	private BufferedReader br;
 	private String cName;
 	private String countersName;
+	private File file;
+	private File temp;
+	private String delete;
+	private BufferedReader reader;
+	private PrintWriter writer;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.new_counter_page);
+		setContentView(R.layout.edit_page);
 		
 
 		Button savebutton = (Button) findViewById(R.id.saveButton);
@@ -71,7 +83,9 @@ public class EditPage extends Activity implements OnClickListener {
 		switch(arg0.getId())
 		{
 		case R.id.cancelButton:
-			Intent intent = new Intent(arg0.getContext(), MainPage.class);
+			String dTP = countersName;
+			Intent intent = new Intent(this, CounterActivity.class);
+			intent.putExtra("CounterName", dTP);
 			startActivityForResult(intent, 0);
 			finish();
 			break;
@@ -119,8 +133,49 @@ public class EditPage extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.deleteButton:
-			///
+			//http://stackoverflow.com/questions/13616876/getting-file-path-for-local-android-project-files
+			//http://stackoverflow.com/questions/5360209/how-to-delete-a-specific-string-in-a-text-file
+			//http://stackoverflow.com/questions/20391671/warning-do-not-hardcode-data-use-context-getfilesdir-getpath-instead
+			delete = cName;
+			ContextWrapper c = new ContextWrapper(this);
+			String filepath = c.getFilesDir().getPath().toString() + "/counterList.txt";
+			file = new File(filepath);
+			try {
+				temp = File.createTempFile("file", ".txt", file.getParentFile());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			String charset = "UTF-8";
+			try {
+				reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			try {
+				writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			try {
+				for (String line; (line = reader.readLine()) !=null;){
+					line = line.replace(delete, "");
+					writer.println(line);
+				}
+				reader.close();
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			file.delete();
+			temp.renameTo(file);
+			Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
+			startActivityForResult(intent4, 0);
 			finish();
+			Toast.makeText(this, "Counter Deleted!", Toast.LENGTH_LONG).show();
 			break;
 			
 		}
