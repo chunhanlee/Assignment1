@@ -101,7 +101,7 @@ public class EditPage extends Activity implements OnClickListener {
 				fos.write(ncount.getBytes());
 				fos.close();
 				fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-				cName = " "+ cName +" Count:0 ";
+				//cName = " "+ cName +" Count:0 ";
 				fos.write(cName.getBytes());
 				fos.close();
 			}catch (IOException e) {

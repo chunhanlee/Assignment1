@@ -78,6 +78,7 @@ public class MainPage extends Activity implements OnClickListener {
 				//System.out.println(out);
 				}
 			System.out.println(outlist);
+			//http://stackoverflow.com/questions/5520693/in-java-remove-empty-elements-from-a-list-of-strings
 			outlist.removeAll(Collections.singleton(""));
 			outlist.removeAll(Collections.singleton(null));
 			}
@@ -85,7 +86,8 @@ public class MainPage extends Activity implements OnClickListener {
 			} catch (IOException e) {
 				try{
 					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-					cName = " "+ cName +"Count:0 ";
+					//cName = " "+ cName +"Count:0 ";
+					cName = "";
 					fos.write(cName.getBytes());
 					fos.close();
 				}catch (IOException e1) {
