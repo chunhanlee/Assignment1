@@ -6,7 +6,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -30,8 +34,7 @@ public class MainPage extends Activity implements OnClickListener {
 	private FileInputStream fis;
 	private InputStreamReader isr;
 	private BufferedReader br;
-	private String[] counterArray;
-	private String out = "";
+	private List<String> outlist = new ArrayList<String>();
 	private String cName;
 	private FileOutputStream fos;
 	@Override
@@ -59,17 +62,26 @@ public class MainPage extends Activity implements OnClickListener {
 		//adapter.notifyDataSetChanged();
 		
 		try {
+			// Copied parts of code from lonelytweeter
 			fis = openFileInput("counterList.txt");
 			isr = new InputStreamReader(fis);	
 			br = new BufferedReader(isr);
 		
-			String sLine = null;
+			String sLine = br.readLine();
 
-			while ((sLine = br.readLine())!=null){
-				out += sLine;
+			while (sLine!=null){
+				//System.out.println(sLine);
+				System.out.println(sLine);
+				if (sLine != ""){
+					outlist.add(sLine);
+					sLine = br.readLine();
+				//System.out.println(out);
+				}
+			System.out.println(outlist);
+			outlist.removeAll(Collections.singleton(""));
+			outlist.removeAll(Collections.singleton(null));
 			}
-			Toast.makeText(this, out, Toast.LENGTH_LONG).show();
-			counterArray = out.split(" ");
+			//Toast.makeText(this, (CharSequence) outlist, Toast.LENGTH_LONG).show();
 			} catch (IOException e) {
 				try{
 					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
@@ -87,7 +99,7 @@ public class MainPage extends Activity implements OnClickListener {
 		}
 		*/
 		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
-		ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, counterArray);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
 		lv = (ListView) findViewById(R.id.list1);
 		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();

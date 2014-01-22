@@ -34,7 +34,7 @@ public class EditPage extends Activity implements OnClickListener {
 	private InputStreamReader isr;
 	private BufferedReader br;
 	private String cName;
-	private String countersName;
+	private String oldcountersName;
 	private File file;
 	private File temp;
 	private String delete;
@@ -59,11 +59,11 @@ public class EditPage extends Activity implements OnClickListener {
 		deleteButton.setOnClickListener(this);
 		
 		Intent i = getIntent();
-		countersName = i.getStringExtra("CounterName");
+		oldcountersName = i.getStringExtra("CounterName");
 		
 		//http://stackoverflow.com/questions/4590957/how-to-set-text-in-an-edittext
 		counterName = (EditText) findViewById(R.id.counterName);
-		counterName.setText(countersName, TextView.BufferType.EDITABLE);
+		counterName.setText(oldcountersName, TextView.BufferType.EDITABLE);
 		cName = counterName.getText().toString();
 		FILENAME = cName + ".txt";
 		
@@ -83,7 +83,7 @@ public class EditPage extends Activity implements OnClickListener {
 		switch(arg0.getId())
 		{
 		case R.id.cancelButton:
-			String dTP = countersName;
+			String dTP = oldcountersName;
 			Intent intent = new Intent(this, CounterActivity.class);
 			intent.putExtra("CounterName", dTP);
 			startActivityForResult(intent, 0);
@@ -95,7 +95,7 @@ public class EditPage extends Activity implements OnClickListener {
 			FILENAME = cName + ".txt";
 			ncount = cName + " Count:0 ";
 			
-			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
+			
 			try{
 				fos = openFileOutput(FILENAME, Context.MODE_APPEND);
 				fos.write(ncount.getBytes());
@@ -113,6 +113,22 @@ public class EditPage extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.resetButton:
+			ContextWrapper c2 = new ContextWrapper(this);
+			String d1path = c2.getFilesDir().getPath().toString() + "/"+ oldcountersName +".txt";
+			File d1file = new File(d1path);
+			d1file.delete();
+			FILENAME = oldcountersName + ".txt";
+			ncount = oldcountersName + " Count:0 ";
+			try {
+				fos = openFileOutput(FILENAME, Context.MODE_APPEND);
+				fos.write(ncount.getBytes());
+				fos.close();
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			/*
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
 			FILENAME = cName + ".txt";
@@ -130,12 +146,14 @@ public class EditPage extends Activity implements OnClickListener {
 				} catch (IOException e) {
 				e.printStackTrace();
 			}
+			*/
 			finish();
 			break;
 		case R.id.deleteButton:
 			//http://stackoverflow.com/questions/13616876/getting-file-path-for-local-android-project-files
 			//http://stackoverflow.com/questions/5360209/how-to-delete-a-specific-string-in-a-text-file
 			//http://stackoverflow.com/questions/20391671/warning-do-not-hardcode-data-use-context-getfilesdir-getpath-instead
+			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			delete = cName;
 			ContextWrapper c = new ContextWrapper(this);
 			String filepath = c.getFilesDir().getPath().toString() + "/counterList.txt";
@@ -168,6 +186,7 @@ public class EditPage extends Activity implements OnClickListener {
 			try {
 				for (String line; (line = reader.readLine()) !=null;){
 					line = line.replace(delete, "");
+					//line = line.replace("\r\n", null);
 					writer.println(line);
 				}
 				reader.close();

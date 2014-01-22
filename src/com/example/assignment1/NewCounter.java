@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class NewCounter extends Activity implements OnClickListener {
-	
 	private String FILENAME;
 	private EditText counterName;
 	private String ncount;
@@ -72,16 +71,14 @@ public class NewCounter extends Activity implements OnClickListener {
 			ncount = cName + " Count:0 ";
 			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			try{
-				System.out.println(counterName);
-				System.out.println(cName);
-				System.out.println(FILENAME);
 				if (cName != "counterList" || cName != null){
 					System.out.println("Im here!");
 					fos = openFileOutput(FILENAME, Context.MODE_APPEND);
 					fos.write(ncount.getBytes());
 					fos.close();
 					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-					cName = " "+ cName +" Count:0 ";
+					//cName = " "+ cName +" Count:0 ";
+					cName = cName + "\r\n";
 					fos.write(cName.getBytes());
 					fos.close();
 					Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
