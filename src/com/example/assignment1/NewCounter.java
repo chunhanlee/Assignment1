@@ -36,9 +36,6 @@ public class NewCounter extends Activity implements OnClickListener {
 		Button cancelbutton = (Button) findViewById(R.id.cancelButton);
 		cancelbutton.setOnClickListener(this);
 		
-		Button readB = (Button) findViewById(R.id.readB);
-		readB.setOnClickListener(this);
-		
 		counterName = (EditText) findViewById(R.id.counterName);
 		cName = counterName.getText().toString();
 		FILENAME = cName + ".txt";
@@ -72,7 +69,6 @@ public class NewCounter extends Activity implements OnClickListener {
 			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			try{
 				if (cName != "counterList" || cName != null){
-					System.out.println("Im here!");
 					fos = openFileOutput(FILENAME, Context.MODE_APPEND);
 					fos.write(ncount.getBytes());
 					fos.close();
@@ -92,15 +88,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
-			
-
 			/*
-			String dataToPass = cName;
-			Intent intent1 = new Intent(this, MainPage.class);
-			intent1.putExtra("KeyToAccessData", dataToPass);
-			startActivityForResult(intent1, 0);
-			*/
-
 		case R.id.readB:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
@@ -119,6 +107,7 @@ public class NewCounter extends Activity implements OnClickListener {
 				} catch (IOException e) {
 				e.printStackTrace();
 			}
+			*/
 		}
 		
 		

@@ -113,7 +113,7 @@ public class MainPage extends Activity implements OnClickListener {
 				Intent i = new Intent(getApplicationContext(), CounterActivity.class);
 				i.putExtra("CounterName", countersname);
 				startActivity(i);
-				finish();
+				//finish();
 			}
 		});
 	}
@@ -129,7 +129,16 @@ public class MainPage extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		Intent intent = new Intent(arg0.getContext(), NewCounter.class);
 		startActivityForResult(intent, 0);
-		finish();
+		//finish();
+	}
+	@Override
+	protected void onResume(){
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
+		lv = (ListView) findViewById(R.id.list1);
+		lv.setAdapter(adapter);
+		((BaseAdapter) adapter).notifyDataSetChanged();
+		super.onResume();
 	}
 
 }
