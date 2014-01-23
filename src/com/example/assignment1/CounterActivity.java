@@ -62,7 +62,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.clicker:
 			curCount++;
-			count.setText(curCount + " times!");
+			count.setText(String.valueOf(curCount));
 			break;
 		}
 	}

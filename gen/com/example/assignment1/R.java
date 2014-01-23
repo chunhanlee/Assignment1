@@ -53,6 +53,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int backButton=0x7f05000d;
         public static final int cancelButton=0x7f050008;
+        public static final int count=0x7f050011;
         public static final int counter=0x7f050004;
         public static final int counterName=0x7f05000a;
         public static final int counterName1=0x7f05000b;
