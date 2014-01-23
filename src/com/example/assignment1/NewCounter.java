@@ -5,6 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Date;
+
+import com.google.gson.Gson;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -16,8 +20,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class NewCounter extends Activity implements OnClickListener {
-	private String FILENAME;
+public class NewCounter extends MainPage implements OnClickListener {
+	private static final String FILENAME = "file2.json";
 	private EditText counterName;
 	private String ncount;
 	private FileOutputStream fos;
@@ -38,7 +42,10 @@ public class NewCounter extends Activity implements OnClickListener {
 		
 		counterName = (EditText) findViewById(R.id.counterName);
 		cName = counterName.getText().toString();
-		FILENAME = cName + ".txt";
+		//FILENAME = cName + ".txt";
+		
+		//http://stackoverflow.com/questions/10455630/pass-context-to-another-activity
+		
 		
 	}
 
@@ -64,8 +71,20 @@ public class NewCounter extends Activity implements OnClickListener {
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
 			cName = cName.replaceAll("\\s", "");
-			FILENAME = cName + ".txt";
-			ncount = cName + " Count:0 ";
+			// took out individual file names
+			//FILENAME = cName + ".txt";
+			//ncount = cName + " Count:0 ";
+			
+			CounterModel newcounter = new CounterModel();
+			newcounter.setCounterCount(0);
+			newcounter.setCountDate(new Date(System.currentTimeMillis()));
+			newcounter.setCounterName(cName);
+			Gson gson = new Gson();
+			String json = gson.toJson(newcounter);
+			ReadWrite writing = new ReadWrite();
+			Context c = getApplication();
+			writing.saveInFile(json, FILENAME, c);
+			/*
 			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			try{
 				if (cName != "counterList" || cName != null){
@@ -88,6 +107,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
+			*/
 			/*
 		case R.id.readB:
 			counterName = (EditText) findViewById(R.id.counterName);

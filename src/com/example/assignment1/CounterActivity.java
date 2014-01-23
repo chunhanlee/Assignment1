@@ -9,7 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CounterActivity extends Activity implements OnClickListener {
+
+public class CounterActivity extends MainPage implements OnClickListener {
 
 	private TextView count;
 	int curCount = 0;
