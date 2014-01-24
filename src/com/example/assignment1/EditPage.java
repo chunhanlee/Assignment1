@@ -90,30 +90,6 @@ public class EditPage extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.saveButton:
-			/*
-			counterName = (EditText) findViewById(R.id.counterName);
-			cName = counterName.getText().toString();
-			FILENAME = cName + ".txt";
-			ncount = cName + " Count:0 ";
-			
-			
-			try{
-				fos = openFileOutput(FILENAME, Context.MODE_APPEND);
-				fos.write(ncount.getBytes());
-				fos.close();
-				fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-				//cName = " "+ cName +" Count:0 ";
-				fos.write(cName.getBytes());
-				fos.close();
-			}catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
-			startActivityForResult(intent1, 0);
-			finish();
-			break;
-			*/
 			cName = counterName.getText().toString();
 			ReadWrite save = new ReadWrite();
 			Context c = getApplication();
@@ -125,41 +101,6 @@ public class EditPage extends Activity implements OnClickListener {
 			Toast.makeText(this, "Counter Renamed!", Toast.LENGTH_LONG).show();
 			break;
 		case R.id.resetButton:
-			/*
-			ContextWrapper c2 = new ContextWrapper(this);
-			String d1path = c2.getFilesDir().getPath().toString() + "/"+ oldcountersName +".txt";
-			File d1file = new File(d1path);
-			d1file.delete();
-			FILENAME = oldcountersName + ".txt";
-			ncount = oldcountersName + " Count:0 ";
-			try {
-				fos = openFileOutput(FILENAME, Context.MODE_APPEND);
-				fos.write(ncount.getBytes());
-				fos.close();
-			} catch (FileNotFoundException e1) {
-				e1.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			counterName = (EditText) findViewById(R.id.counterName);
-			cName = counterName.getText().toString();
-			FILENAME = cName + ".txt";
-			try {
-				fis = openFileInput("counterList.txt");
-				isr = new InputStreamReader(fis);	
-				br = new BufferedReader(isr);
-			
-				String sLine = null;
-				String out = "";
-				while ((sLine = br.readLine())!=null){
-					out += sLine;
-				}
-				Toast.makeText(this, out, Toast.LENGTH_LONG).show();
-				} catch (IOException e) {
-				e.printStackTrace();
-			}
-			*/
 			ReadWrite reset = new ReadWrite();
 			Context c1 = getApplication();
 			reset.resetCounter("file2.json", c1, oldcountersName);
@@ -170,60 +111,7 @@ public class EditPage extends Activity implements OnClickListener {
 			Toast.makeText(this, "Counter Reset!", Toast.LENGTH_LONG).show();
 			break;
 		case R.id.deleteButton:
-			/*
-			//http://stackoverflow.com/questions/13616876/getting-file-path-for-local-android-project-files
-			//http://stackoverflow.com/questions/5360209/how-to-delete-a-specific-string-in-a-text-file
-			//http://stackoverflow.com/questions/20391671/warning-do-not-hardcode-data-use-context-getfilesdir-getpath-instead
-			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
-			delete = cName;
-			ContextWrapper c = new ContextWrapper(this);
-			String filepath = c.getFilesDir().getPath().toString() + "/counterList.txt";
-			file = new File(filepath);
-			
 
-			ContextWrapper c1 = new ContextWrapper(this);
-			String dpath = c1.getFilesDir().getPath().toString() + "/"+ FILENAME;
-			File dfile = new File(dpath);
-			try {
-				temp = File.createTempFile("file", ".txt", file.getParentFile());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			String charset = "UTF-8";
-			try {
-				reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			try {
-				writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			try {
-				for (String line; (line = reader.readLine()) !=null;){
-					line = line.replace(delete, "");
-					//line = line.replace("\r\n", null);
-					writer.println(line);
-				}
-				reader.close();
-				writer.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			file.delete();
-			temp.renameTo(file);
-			dfile.delete();
-			Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
-			startActivityForResult(intent4, 0);
-			finish();
-			Toast.makeText(this, "Counter Deleted!", Toast.LENGTH_LONG).show();
-			break;
-			*/
 			ReadWrite delete = new ReadWrite();
 			Context c2 = getApplication();
 			delete.deleteCounter("file2.json", c2, oldcountersName);
