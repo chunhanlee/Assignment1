@@ -109,8 +109,9 @@ public class MainPage extends Activity implements OnClickListener {
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
 				String countersname = ((TextView) view).getText().toString();
+				String[] countNames = countersname.split("\\s+");
 				Intent i = new Intent(getApplicationContext(), CounterActivity.class);
-				i.putExtra("CounterName", countersname);
+				i.putExtra("CounterName", countNames[0]);
 				startActivity(i);
 				//finish();
 			}
@@ -127,7 +128,7 @@ public class MainPage extends Activity implements OnClickListener {
 			CounterModel a = counters.get(i);
 			String cn = a.getCounterName();
 			String cc = String.valueOf(a.getCounterCount());
-			outlist.add(cn + "Count: "+cc);
+			outlist.add(cn + "   Count: "+cc);
 		}
 	}
 	

@@ -22,16 +22,19 @@ public class CounterModel {
 	public void setCounterName(String counterName) {
 		this.counterName = counterName;
 	}
-	public List<Date> getCountDate() {
+	public List<Date> getCounterDate() {
 		return countDate;
 	}
-	public void setCountDate(Date cDate) {
-		countDate.add(cDate);
+	public void setCountDate(Date cDate, List<Date> list) {
+		list.add(cDate);
+		countDate = list;
 	}
+	/*
 	public void nCounterModel(String name, int count, Date date){
 		this.counterName = name;
 		this.setCountDate(date);
 		this.counterCount = count;
 	}
+	*/
 
 }

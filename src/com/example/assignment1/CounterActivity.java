@@ -2,6 +2,7 @@ package com.example.assignment1;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -10,11 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class CounterActivity extends MainPage implements OnClickListener {
+public class CounterActivity extends Activity implements OnClickListener {
 
 	private TextView count;
 	int curCount = 0;
-	private String countersName;
+	String countersName;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +28,11 @@ public class CounterActivity extends MainPage implements OnClickListener {
 		countersName = i.getStringExtra("CounterName");
 		click.setText(countersName);
 		click.setOnClickListener(this);
+		Context context = getApplication();
+		ReadWrite getcounts = new ReadWrite();
+		// Get saved count for the counter 
+		curCount = getcounts.getCount("file2.json", context, countersName);
+		count.setText(""+curCount);
 		
 		Button back = (Button) findViewById(R.id.backButton);
 		back.setOnClickListener(this);
@@ -63,7 +70,10 @@ public class CounterActivity extends MainPage implements OnClickListener {
 			break;
 		case R.id.clicker:
 			curCount++;
+			Context context = getApplication();
+			ReadWrite setcounts = new ReadWrite();
 			count.setText(String.valueOf(curCount));
+			setcounts.setCount("file2.json", context, countersName, curCount);
 			break;
 		}
 	}

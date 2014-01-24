@@ -31,6 +31,7 @@ public class NewCounter extends Activity implements OnClickListener {
 	private InputStreamReader isr;
 	private BufferedReader br;
 	private String cName;
+	private List<Date> dates = new ArrayList<Date>(); 
 	private List<CounterModel> counterlist = new ArrayList<CounterModel>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +86,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			
 			CounterModel newcounter = new CounterModel();
 			newcounter.setCounterCount(0);
-			newcounter.setCountDate(new Date(System.currentTimeMillis()));
+			//newcounter.setCountDate(new Date(System.currentTimeMillis()), dates);
 			newcounter.setCounterName(cName);
 			counterlist.add(newcounter);
 			
