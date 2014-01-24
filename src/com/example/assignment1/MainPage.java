@@ -59,7 +59,7 @@ public class MainPage extends Activity implements OnClickListener {
 		//adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, strArr);
 		//lv.setAdapter(adapter);
 		//adapter.notifyDataSetChanged();
-
+		/*
 		try {
 			// Copied parts of code from lonelytweeter
 			fis = openFileInput("counterList.txt");
@@ -93,7 +93,7 @@ public class MainPage extends Activity implements OnClickListener {
 					e1.printStackTrace();
 				}
 		}
-
+		*/
 		/*
 		for (int i1 = 0; i1 < counterArray.length; i1++){
 			System.out.println(counterArray[i1]);
@@ -116,16 +116,21 @@ public class MainPage extends Activity implements OnClickListener {
 			}
 		});
 	}
-	/*
+	
 	@Override
 	protected void onStart() {
 		super.onStart();
 		ReadWrite reader = new ReadWrite();
 		Context context = getApplication();
-		List<Object> counters = (List<Object>) reader.loadFromFile("file2.json" ,context);
-
+		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
+		for (int i=0; i< counters.size(); i++){
+			CounterModel a = counters.get(i);
+			String cn = a.getCounterName();
+			String cc = String.valueOf(a.getCounterCount());
+			outlist.add(cn + "Count: "+cc);
+		}
 	}
-	*/
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
