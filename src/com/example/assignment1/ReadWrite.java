@@ -155,4 +155,70 @@ public class ReadWrite {
 		writing.saveInFile(json, fname, c);
 		
 	}
+	
+	public void resetCounter(String fname, Context c, String counterName){
+		List<CounterModel> outlist = new ArrayList<CounterModel>();
+		// Load file
+		List<CounterModel> counters = loadFromFile(fname, c);
+		// Create a list of all counters and their counts
+		for (int i=0; i< counters.size(); i++){
+			CounterModel a = counters.get(i);
+			outlist.add(a);
+		}
+		// Extract everything about the counter
+		for (int i=0; i<outlist.size(); i++){
+			CounterModel b = outlist.get(i);
+			String name = b.getCounterName();
+			if (name.equals(counterName)){
+				outlist.remove(i);
+			}
+		}
+		
+		CounterModel newcounter = new CounterModel();
+		newcounter.setCounterCount(0);
+		newcounter.setCounterName(counterName);
+		outlist.add(newcounter);
+		
+		Gson gson = new Gson();
+		String json = gson.toJson(outlist);
+		ReadWrite writing = new ReadWrite();
+		
+		writing.saveInFile(json, "file2.json", c);
+	}
+	
+	public void renameCounter(String fname, Context c, String counterName, String oldcounterName){
+		List<CounterModel> outlist = new ArrayList<CounterModel>();
+		List<Date> countersDate = new ArrayList<Date>();
+		int counterCount = 0;
+		// Load file
+		List<CounterModel> counters = loadFromFile(fname, c);
+		// Create a list of all counters and their counts
+		for (int i=0; i< counters.size(); i++){
+			CounterModel a = counters.get(i);
+			outlist.add(a);
+		}
+		// Extract everything about the counter
+		for (int i=0; i<outlist.size(); i++){
+			CounterModel b = outlist.get(i);
+			String name = b.getCounterName();
+			if (name.equals(oldcounterName)){
+				CounterModel counter = outlist.get(i);
+				//countersName = counter.getCounterName();
+				counterCount = counter.getCounterCount();
+				countersDate = counter.getCounterDate();
+				outlist.remove(i);
+			}
+		}
+		
+		CounterModel newcounter = new CounterModel();
+		newcounter.setCounterCount(counterCount);
+		newcounter.setCountDate(new Date(System.currentTimeMillis()), countersDate);
+		newcounter.setCounterName(counterName);
+		outlist.add(newcounter);
+		
+		Gson gson = new Gson();
+		String json = gson.toJson(outlist);
+		ReadWrite writing = new ReadWrite();
+		writing.saveInFile(json, "file2.json", c);
+	}
 }

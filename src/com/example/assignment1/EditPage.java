@@ -90,6 +90,7 @@ public class EditPage extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.saveButton:
+			/*
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
 			FILENAME = cName + ".txt";
@@ -112,7 +113,19 @@ public class EditPage extends Activity implements OnClickListener {
 			startActivityForResult(intent1, 0);
 			finish();
 			break;
+			*/
+			cName = counterName.getText().toString();
+			ReadWrite save = new ReadWrite();
+			Context c = getApplication();
+			save.renameCounter("file2.json", c, cName, oldcountersName);
+			Intent intent3 = new Intent(arg0.getContext(), CounterActivity.class);
+			intent3.putExtra("CounterName", cName);
+			startActivityForResult(intent3, 0);
+			finish();
+			Toast.makeText(this, "Counter Renamed!", Toast.LENGTH_LONG).show();
+			break;
 		case R.id.resetButton:
+			/*
 			ContextWrapper c2 = new ContextWrapper(this);
 			String d1path = c2.getFilesDir().getPath().toString() + "/"+ oldcountersName +".txt";
 			File d1file = new File(d1path);
@@ -128,7 +141,7 @@ public class EditPage extends Activity implements OnClickListener {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			/*
+			
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
 			FILENAME = cName + ".txt";
@@ -147,7 +160,14 @@ public class EditPage extends Activity implements OnClickListener {
 				e.printStackTrace();
 			}
 			*/
+			ReadWrite reset = new ReadWrite();
+			Context c1 = getApplication();
+			reset.resetCounter("file2.json", c1, oldcountersName);
+			Intent intent2 = new Intent(arg0.getContext(), CounterActivity.class);
+			intent2.putExtra("CounterName", oldcountersName);
+			startActivityForResult(intent2, 0);
 			finish();
+			Toast.makeText(this, "Counter Reset!", Toast.LENGTH_LONG).show();
 			break;
 		case R.id.deleteButton:
 			/*
@@ -205,8 +225,8 @@ public class EditPage extends Activity implements OnClickListener {
 			break;
 			*/
 			ReadWrite delete = new ReadWrite();
-			Context c = getApplication();
-			delete.deleteCounter("file2.json", c, cName);
+			Context c2 = getApplication();
+			delete.deleteCounter("file2.json", c2, oldcountersName);
 			Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent4, 0);
 			finish();
