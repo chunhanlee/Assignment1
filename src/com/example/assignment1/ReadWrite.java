@@ -129,4 +129,30 @@ public class ReadWrite {
 		
 	}
 
+	public void deleteCounter(String fname, Context c, String counterName){
+		List<CounterModel> outlist = new ArrayList<CounterModel>();
+		// Load file
+		List<CounterModel> counters = loadFromFile(fname, c);
+		// Create a list of all counters and their counts
+		for (int i=0; i< counters.size(); i++){
+			CounterModel a = counters.get(i);
+			outlist.add(a);
+		}
+		// Extract everything about the counter
+		for (int i=0; i<outlist.size(); i++){
+			CounterModel b = outlist.get(i);
+			String name = b.getCounterName();
+			// Remove counter from list
+			if (name.equals(counterName)){
+				outlist.remove(i);
+			}
+		}
+		
+		Gson gson = new Gson();
+		String json = gson.toJson(outlist);
+		ReadWrite writing = new ReadWrite();
+		
+		writing.saveInFile(json, fname, c);
+		
+	}
 }

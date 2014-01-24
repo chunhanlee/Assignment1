@@ -150,6 +150,7 @@ public class EditPage extends Activity implements OnClickListener {
 			finish();
 			break;
 		case R.id.deleteButton:
+			/*
 			//http://stackoverflow.com/questions/13616876/getting-file-path-for-local-android-project-files
 			//http://stackoverflow.com/questions/5360209/how-to-delete-a-specific-string-in-a-text-file
 			//http://stackoverflow.com/questions/20391671/warning-do-not-hardcode-data-use-context-getfilesdir-getpath-instead
@@ -202,8 +203,18 @@ public class EditPage extends Activity implements OnClickListener {
 			finish();
 			Toast.makeText(this, "Counter Deleted!", Toast.LENGTH_LONG).show();
 			break;
+			*/
+			ReadWrite delete = new ReadWrite();
+			Context c = getApplication();
+			delete.deleteCounter("file2.json", c, cName);
+			Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
+			startActivityForResult(intent4, 0);
+			finish();
+			Toast.makeText(this, "Counter Deleted!", Toast.LENGTH_LONG).show();
+			break;
 			
 		}
+
 		
 		
 	}		
