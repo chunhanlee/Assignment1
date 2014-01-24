@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -20,7 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class NewCounter extends MainPage implements OnClickListener {
+public class NewCounter extends Activity implements OnClickListener {
 	private static final String FILENAME = "file2.json";
 	private EditText counterName;
 	private String ncount;
@@ -29,6 +31,7 @@ public class NewCounter extends MainPage implements OnClickListener {
 	private InputStreamReader isr;
 	private BufferedReader br;
 	private String cName;
+	private List<CounterModel> counterlist = new ArrayList<CounterModel>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,8 +46,6 @@ public class NewCounter extends MainPage implements OnClickListener {
 		counterName = (EditText) findViewById(R.id.counterName);
 		cName = counterName.getText().toString();
 		//FILENAME = cName + ".txt";
-		
-		//http://stackoverflow.com/questions/10455630/pass-context-to-another-activity
 		
 		
 	}
@@ -75,15 +76,31 @@ public class NewCounter extends MainPage implements OnClickListener {
 			//FILENAME = cName + ".txt";
 			//ncount = cName + " Count:0 ";
 			
+			Context c = getApplication();
+			// Reads in the json file
+			ReadWrite reader = new ReadWrite();
+			counterlist = (List<CounterModel>) reader.loadFromFile(FILENAME, c);
+			//System.out.println("counterlist"+counterlist.get(0));
+			//counterlist.add(new nCounterModel(cName, 0, new Date(System.currentTimeMillis())));
+			
 			CounterModel newcounter = new CounterModel();
 			newcounter.setCounterCount(0);
 			newcounter.setCountDate(new Date(System.currentTimeMillis()));
 			newcounter.setCounterName(cName);
+			counterlist.add(newcounter);
+			
 			Gson gson = new Gson();
-			String json = gson.toJson(newcounter);
+			//String json = gson.toJson(newcounter);
+			String json = gson.toJson(counterlist);
+			System.out.println("json string"+json);
 			ReadWrite writing = new ReadWrite();
-			Context c = getApplication();
+			
 			writing.saveInFile(json, FILENAME, c);
+			
+			Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
+			startActivityForResult(intent1, 0);
+			finish();
+			break;
 			/*
 			//http://developer.android.com/training/basics/data-storage/files.html#DeleteFile
 			try{

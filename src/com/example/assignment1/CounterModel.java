@@ -1,12 +1,14 @@
 package com.example.assignment1;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class CounterModel {
 	private String counterName;
 	private int counterCount;
-	private Date countDate;
+	private List<Date> countDate = new ArrayList<Date>();
 	
 	public int getCounterCount() {
 		return counterCount;
@@ -20,11 +22,16 @@ public class CounterModel {
 	public void setCounterName(String counterName) {
 		this.counterName = counterName;
 	}
-	public Date getCountDate() {
+	public List<Date> getCountDate() {
 		return countDate;
 	}
-	public void setCountDate(Date countDate) {
-		this.countDate = countDate;
+	public void setCountDate(Date cDate) {
+		countDate.add(cDate);
 	}
-	
+	public void nCounterModel(String name, int count, Date date){
+		this.counterName = name;
+		this.setCountDate(date);
+		this.counterCount = count;
+	}
+
 }

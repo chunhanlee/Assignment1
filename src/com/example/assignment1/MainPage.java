@@ -44,7 +44,6 @@ public class MainPage extends Activity implements OnClickListener {
 		
 		Button button = (Button) findViewById(R.id.clicker);
 		button.setOnClickListener(this);
-		System.out.println(new Date());
 		/*
 		Intent intent1 = getIntent();
 		dataToCollect = intent1.getStringExtra("KeyToAccessData");
@@ -60,7 +59,7 @@ public class MainPage extends Activity implements OnClickListener {
 		//adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, strArr);
 		//lv.setAdapter(adapter);
 		//adapter.notifyDataSetChanged();
-		
+
 		try {
 			// Copied parts of code from lonelytweeter
 			fis = openFileInput("counterList.txt");
@@ -117,6 +116,16 @@ public class MainPage extends Activity implements OnClickListener {
 			}
 		});
 	}
+	/*
+	@Override
+	protected void onStart() {
+		super.onStart();
+		ReadWrite reader = new ReadWrite();
+		Context context = getApplication();
+		List<Object> counters = (List<Object>) reader.loadFromFile("file2.json" ,context);
+
+	}
+	*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
