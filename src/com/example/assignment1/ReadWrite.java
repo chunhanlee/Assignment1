@@ -110,14 +110,14 @@ public class ReadWrite {
 				CounterModel counter = outlist.get(i);
 				//countersName = counter.getCounterName();
 				//counterCount = counter.getCounterCount();
-				countersDate = counter.getCounterDate();
+				countersDate = counter.getCounterDateList();
 				outlist.remove(i);
 			}
 		}
 		
 		CounterModel newcounter = new CounterModel();
 		newcounter.setCounterCount(countVal);
-		newcounter.setCountDate(new Date(System.currentTimeMillis()), countersDate);
+		newcounter.setCountDateList(new Date(System.currentTimeMillis()), countersDate);
 		newcounter.setCounterName(counterName);
 		outlist.add(newcounter);
 		
@@ -207,14 +207,14 @@ public class ReadWrite {
 				CounterModel counter = outlist.get(i);
 				//countersName = counter.getCounterName();
 				counterCount = counter.getCounterCount();
-				countersDate = counter.getCounterDate();
+				countersDate = counter.getCounterDateList();
 				outlist.remove(i);
 			}
 		}
 		
 		CounterModel newcounter = new CounterModel();
 		newcounter.setCounterCount(counterCount);
-		newcounter.setCountDate(new Date(System.currentTimeMillis()), countersDate);
+		newcounter.setCountDateList(new Date(System.currentTimeMillis()), countersDate);
 		newcounter.setCounterName(counterName);
 		outlist.add(newcounter);
 		

@@ -42,15 +42,27 @@ public class SummaryPage extends Activity implements OnClickListener{
 		Context context = getApplication();
 
 		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
-		outlist = order.orderedCounters(counters);
-		/*
-		for (int i=0; i< counters.size(); i++){
-			CounterModel a = counters.get(i);
-			String cn = a.getCounterName();
-			String cc = String.valueOf(a.getCounterCount());
-			outlist.add(cn + "   Count: "+cc);
+		//outlist = order.orderedCounters(counters);
+		List<Date> datelist = new ArrayList<Date>();
+		for (int it =0; it< counters.size(); it++){
+			CounterModel a = counters.get(it);
+			if (a.getCounterName().equals(countersName)){
+				
+				datelist = a.getCounterDateList();
+			}
 		}
-		*/
+		SummaryModel summ = new SummaryModel();
+		outlist.add("Counts per minute:");
+		outlist.addAll(summ.getCountMinut(datelist));
+		outlist.add("Counts per hour:");
+		outlist.addAll(summ.getCountHour(datelist));
+		outlist.add("Counts per day:");
+		outlist.addAll(summ.getCountDate(datelist));
+		outlist.add("Counts per month:");
+		outlist.addAll(summ.getCountMonth(datelist));
+		outlist.add("Counts per Year:");
+		outlist.addAll(summ.getCountYear(datelist));
+		
 		//Date date = new Date(System.currentTimeMillis());
 		/*
 		Date date = null;
@@ -69,9 +81,9 @@ public class SummaryPage extends Activity implements OnClickListener{
 		// int week = cal.get(Calendar.DAY_OF_WEEK_IN_MONTH); works need try catch
 		// int hour = cal.get(Calendar.HOUR); works with system.cur...
 		// int min = cal.get(Calendar.MINUTE); works with system.cur...
-		int month = cal.get(Calendar.MINUTE);
+		int month = cal.get(Calendar.YEAR);
 		
-		System.out.println(month);
+		//System.out.println(month);
 
 		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
@@ -89,15 +101,11 @@ public class SummaryPage extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View arg0) {
-		switch(arg0.getId())
-		{
-		case R.id.button1:
 			String dTP = countersName;
 			Intent intent2 = new Intent(this, CounterActivity.class);
 			intent2.putExtra("CounterName", dTP);
 			startActivityForResult(intent2, 0);
 			finish();
-			break;
 	}
-}
+
 }
