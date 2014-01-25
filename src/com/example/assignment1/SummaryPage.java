@@ -1,6 +1,10 @@
 package com.example.assignment1;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -47,6 +51,27 @@ public class SummaryPage extends Activity implements OnClickListener{
 			outlist.add(cn + "   Count: "+cc);
 		}
 		*/
+		//Date date = new Date(System.currentTimeMillis());
+		/*
+		Date date = null;
+		try {
+			date = new SimpleDateFormat( "yyyyMMdd" ).parse( "20140117" );
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		Date date = new Date(System.currentTimeMillis());
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		// int month = cal.get(Calendar.MONTH); but this makes January == 0 etc
+		// int date = cal.get(Calendar. DATE); works with system.cur....
+		// int week = cal.get(Calendar.DAY_OF_WEEK_IN_MONTH); works need try catch
+		// int hour = cal.get(Calendar.HOUR); works with system.cur...
+		// int min = cal.get(Calendar.MINUTE); works with system.cur...
+		int month = cal.get(Calendar.MINUTE);
+		
+		System.out.println(month);
 
 		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
