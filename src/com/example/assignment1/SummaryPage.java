@@ -82,8 +82,6 @@ public class SummaryPage extends Activity implements OnClickListener{
 		// int hour = cal.get(Calendar.HOUR); works with system.cur...
 		// int min = cal.get(Calendar.MINUTE); works with system.cur...
 		int month = cal.get(Calendar.YEAR);
-		
-		//System.out.println(month);
 
 		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
@@ -101,11 +99,11 @@ public class SummaryPage extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View arg0) {
-			String dTP = countersName;
-			Intent intent2 = new Intent(this, CounterActivity.class);
-			intent2.putExtra("CounterName", dTP);
-			startActivityForResult(intent2, 0);
-			finish();
+		String dTP = countersName;
+		Intent intent2 = new Intent(arg0.getContext(), CounterActivity.class);
+		intent2.putExtra("CounterName", dTP);
+		startActivityForResult(intent2, 0);
+		finish();
 	}
 
 }

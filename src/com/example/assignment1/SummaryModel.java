@@ -22,6 +22,11 @@ public class SummaryModel {
 		List<String> PerYear = new ArrayList<String>();
 		Calendar cal = Calendar.getInstance();
 		List<Integer> yearlist = new ArrayList<Integer>();
+		// Check for counters with no counts
+		if (counterdatelist.isEmpty() || counterdatelist == null){
+			PerYear.add("None");
+			return PerYear;
+		}
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -39,6 +44,11 @@ public class SummaryModel {
 		List<String> PerMonth = new ArrayList<String>();
 		Calendar cal = Calendar.getInstance();
 		List<String> monthlist = new ArrayList<String>();
+		// Check for counters with no counts
+		if (counterdatelist.isEmpty() || counterdatelist == null){
+			PerMonth.add("None");
+			return PerMonth;
+		}
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -59,6 +69,11 @@ public class SummaryModel {
 		List<String> PerWeek = new ArrayList<String>();
 		Calendar cal = Calendar.getInstance();
 		List<String> weeklist = new ArrayList<String>();
+		// Check for counters with no counts
+		if (counterdatelist.isEmpty() || counterdatelist == null){
+			PerWeek.add("None");
+			return PerWeek;
+		}
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -82,6 +97,11 @@ public class SummaryModel {
 		List<String> PerDate = new ArrayList<String>();
 		Calendar cal = Calendar.getInstance();
 		List<String> datelist = new ArrayList<String>();
+		// Check for counters with no counts
+		if (counterdatelist.isEmpty() || counterdatelist == null){
+			PerDate.add("None");
+			return PerDate;
+		}
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -106,6 +126,11 @@ public class SummaryModel {
 		List<String> PerHour = new ArrayList<String>();
 		Calendar cal = Calendar.getInstance();
 		List<String> hourlist = new ArrayList<String>();
+		// Check for counters with no counts
+		if (counterdatelist.isEmpty() || counterdatelist == null){
+			PerHour.add("None");
+			return PerHour;
+		}
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -132,6 +157,11 @@ public class SummaryModel {
 		List<String> PerMin = new ArrayList<String>();
 		Calendar cal = Calendar.getInstance();
 		List<String> minlist = new ArrayList<String>();
+		// Check for counters with no counts
+		if (counterdatelist.isEmpty() || counterdatelist == null){
+			PerMin.add("None");
+			return PerMin;
+		}
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);

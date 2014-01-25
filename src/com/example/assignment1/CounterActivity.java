@@ -59,6 +59,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 		case R.id.backButton:
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
+			finish();
 			break;
 		case R.id.summaryButton:
 			String dTP1 = countersName;

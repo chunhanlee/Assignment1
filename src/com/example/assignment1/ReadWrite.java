@@ -62,6 +62,7 @@ public class ReadWrite {
 		}
 		return (List<CounterModel>) counters;
 	}
+	
 	public int getCount(String fname, Context c, String counterName){
 		List<String> outlist = new ArrayList<String>();
 		int count = 0;
@@ -254,6 +255,19 @@ public class ReadWrite {
 		writing.saveInFile(json, "file2.json", c);
 	}
 
+	public boolean checkCounterExist(String fname, Context c, String counterName){
+		List<CounterModel> a = new ArrayList<CounterModel>();
+		boolean bvalue = false;
+		a = loadFromFile(fname, c);
+		for (int i=0; i< a.size(); i++){
+			CounterModel b = a.get(i);
+			String cn = b.getCounterName();
+			if (cn.equals(counterName)){
+				bvalue = true;
+			}
+		}
+		return bvalue;
+	}
 	//http://java2novice.com/java-collections-and-util/arraylist/sort-comparator/
 	public List<String> orderedCounters(List<CounterModel> countList){
 		Collections.sort(countList, new OrderCount());

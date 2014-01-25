@@ -13,7 +13,9 @@ import com.google.gson.Gson;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -47,8 +49,6 @@ public class NewCounter extends Activity implements OnClickListener {
 		counterName = (EditText) findViewById(R.id.counterName);
 		cName = counterName.getText().toString();
 		//FILENAME = cName + ".txt";
-		
-		
 	}
 
 	@Override
@@ -74,10 +74,45 @@ public class NewCounter extends Activity implements OnClickListener {
 			cName = counterName.getText().toString();
 			cName = cName.replaceAll("\\s", "");
 			
+			//http://www.androidsnippets.com/prompt-user-input-with-an-alertdialog
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			alert.setTitle("Counter Already Exists");
+			alert.setMessage("Unable to create this counter because it already exists!");
+			alert.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+			  // Cancel.
+			  }
+			});
+			AlertDialog.Builder alert2 = new AlertDialog.Builder(this);
+			alert2.setTitle("Counter Created!");
+			alert2.setMessage("Your new counter has been created!");
+			/*
+			alert2.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+			  // Cancel.
+			  }
+			});
+*/
+
 			Context c = getApplication();
-			// Reads in the json file
+			ReadWrite checkcounter = new ReadWrite();
 			ReadWrite newcount = new ReadWrite();
-			newcount.newCounter(FILENAME, c, cName);
+			boolean countexist = false;
+			countexist = checkcounter.checkCounterExist(FILENAME, c, cName);
+			System.out.println(countexist);
+			if (countexist = false){
+				newcount.newCounter(FILENAME, c, cName);
+				alert2.show();
+				Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
+				startActivityForResult(intent1, 0);
+				finish();
+				break;
+			}else{
+				alert.show();
+			}
+			// Reads in the json file
+
+			
 			//counterlist = (List<CounterModel>) reader.loadFromFile(FILENAME, c);
 			//System.out.println("counterlist"+counterlist.get(0));
 			//counterlist.add(new nCounterModel(cName, 0, new Date(System.currentTimeMillis())));
@@ -96,10 +131,7 @@ public class NewCounter extends Activity implements OnClickListener {
 			
 			//writing.saveInFile(json, FILENAME, c);
 			
-			Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
-			startActivityForResult(intent1, 0);
-			finish();
-			break;
+
 
 		}
 		
