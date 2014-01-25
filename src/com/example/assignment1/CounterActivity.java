@@ -36,10 +36,10 @@ public class CounterActivity extends Activity implements OnClickListener {
 		
 		Button back = (Button) findViewById(R.id.backButton);
 		back.setOnClickListener(this);
-		/*
+		
 		Button summary = (Button) findViewById(R.id.summaryButton);
 		summary.setOnClickListener(this);
-		*/
+		
 		Button edit = (Button) findViewById(R.id.editButton);
 		edit.setOnClickListener(this);
 		
@@ -60,8 +60,12 @@ public class CounterActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
 			break;
-		//case R.id.summaryButton:
-			
+		case R.id.summaryButton:
+			String dTP1 = countersName;
+			Intent intent3 = new Intent(this, SummaryPage.class);
+			intent3.putExtra("CounterName", dTP1);
+			startActivityForResult(intent3, 0);
+			break;
 		case R.id.editButton:
 			String dTP = countersName;
 			Intent intent2 = new Intent(this, EditPage.class);
