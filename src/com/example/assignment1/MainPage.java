@@ -13,6 +13,7 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.ClipData.Item;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
@@ -37,6 +38,7 @@ public class MainPage extends Activity implements OnClickListener {
 	private List<String> outlist = new ArrayList<String>();
 	private String cName;
 	private FileOutputStream fos;
+	//private List<String> outlist1 = new ArrayList<String>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,67 +46,30 @@ public class MainPage extends Activity implements OnClickListener {
 		
 		Button button = (Button) findViewById(R.id.clicker);
 		button.setOnClickListener(this);
-		/*
-		Intent intent1 = getIntent();
-		dataToCollect = intent1.getStringExtra("KeyToAccessData");
-		if (dataToCollect != ""){
-			Toast.makeText(this, dataToCollect, Toast.LENGTH_LONG).show();
-		}
-		*/
-		//lv = (ListView) findViewById(R.id.listView1);
-		//strArr = new ArrayList<String>();
-		//for (int i = 0; i <2; i++){
-		//	strArr.add("Row:" + dataToCollect);
-		//}
-		//adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, strArr);
-		//lv.setAdapter(adapter);
-		//adapter.notifyDataSetChanged();
-		/*
-		try {
-			// Copied parts of code from lonelytweeter
-			fis = openFileInput("counterList.txt");
-			isr = new InputStreamReader(fis);	
-			br = new BufferedReader(isr);
-		
-			String sLine = br.readLine();
 
-			while (sLine!=null){
-				//System.out.println(sLine);
-				System.out.println(sLine);
-				if (sLine != ""){
-					outlist.add(sLine);
-					sLine = br.readLine();
-				//System.out.println(out);
-				}
-			System.out.println(outlist);
-			//http://stackoverflow.com/questions/5520693/in-java-remove-empty-elements-from-a-list-of-strings
-			outlist.removeAll(Collections.singleton(""));
-			outlist.removeAll(Collections.singleton(null));
-			}
-			//Toast.makeText(this, (CharSequence) outlist, Toast.LENGTH_LONG).show();
-			} catch (IOException e) {
-				try{
-					fos = openFileOutput("counterList.txt", Context.MODE_APPEND);
-					//cName = " "+ cName +"Count:0 ";
-					cName = "";
-					fos.write(cName.getBytes());
-					fos.close();
-				}catch (IOException e1) {
-					e1.printStackTrace();
-				}
+		ReadWrite reader = new ReadWrite();
+		ReadWrite order = new ReadWrite();
+		Context context = getApplication();
+		List<List<String>> listOfList = new ArrayList<List<String>>();
+		//listOfList.add(new ArrayList<String>());
+		//listOfList.get(0).add("");
+
+		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
+		outlist = order.orderedCounters(counters);
+		for (int i=0; i< counters.size(); i++){
+			CounterModel a = counters.get(i);
+			String cn = a.getCounterName();
+			String cc = String.valueOf(a.getCounterCount());
+			outlist.add(cn + "   Count: "+cc);
 		}
-		*/
-		/*
-		for (int i1 = 0; i1 < counterArray.length; i1++){
-			System.out.println(counterArray[i1]);
-		}
-		*/
+		
+
 		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
 		lv = (ListView) findViewById(R.id.list1);
 		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();
-		
+
 		//http://www.androidhive.info/2011/10/android-listview-tutorial/
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -117,21 +82,6 @@ public class MainPage extends Activity implements OnClickListener {
 			}
 		});
 	}
-	
-	@Override
-	protected void onStart() {
-		super.onStart();
-		ReadWrite reader = new ReadWrite();
-		Context context = getApplication();
-		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
-		for (int i=0; i< counters.size(); i++){
-			CounterModel a = counters.get(i);
-			String cn = a.getCounterName();
-			String cc = String.valueOf(a.getCounterCount());
-			outlist.add(cn + "   Count: "+cc);
-		}
-	}
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,14 +96,21 @@ public class MainPage extends Activity implements OnClickListener {
 		startActivityForResult(intent, 0);
 		//finish();
 	}
+	
 	@Override
 	protected void onResume(){
-
+		outlist.clear();
+		ReadWrite reader = new ReadWrite();
+		Context context = getApplication();
+		ReadWrite order = new ReadWrite();
+		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
+		outlist = order.orderedCounters(counters);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
 		lv = (ListView) findViewById(R.id.list1);
 		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();
 		super.onResume();
 	}
+	
 
 }

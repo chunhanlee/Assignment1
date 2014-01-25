@@ -25,6 +25,7 @@
         <activity android:name=".NewCounter"></activity>
         <activity android:name=".CounterActivity"></activity>
     	<activity android:name=".EditPage"></activity>
+    	<activity android:name=".SummaryPage"></activity>
     </application>
 
 </manifest>

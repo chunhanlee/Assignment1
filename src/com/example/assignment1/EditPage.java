@@ -35,11 +35,13 @@ public class EditPage extends Activity implements OnClickListener {
 	private BufferedReader br;
 	private String cName;
 	private String oldcountersName;
+	/*
 	private File file;
 	private File temp;
 	private String delete;
 	private BufferedReader reader;
 	private PrintWriter writer;
+	*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -99,6 +101,7 @@ public class EditPage extends Activity implements OnClickListener {
 			startActivityForResult(intent3, 0);
 			finish();
 			Toast.makeText(this, "Counter Renamed!", Toast.LENGTH_LONG).show();
+			finish();
 			break;
 		case R.id.resetButton:
 			ReadWrite reset = new ReadWrite();
@@ -109,6 +112,7 @@ public class EditPage extends Activity implements OnClickListener {
 			startActivityForResult(intent2, 0);
 			finish();
 			Toast.makeText(this, "Counter Reset!", Toast.LENGTH_LONG).show();
+			finish();
 			break;
 		case R.id.deleteButton:
 

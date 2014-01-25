@@ -19,5 +19,6 @@
     <string name="resetButton">Reset Count</string>
     <string name="deleteButton">Delete Counter</string>
     <string name="count">0</string>
+    <string name="backButton1">Back</string>
 
 </resources>

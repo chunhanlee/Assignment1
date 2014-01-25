@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -221,4 +223,61 @@ public class ReadWrite {
 		ReadWrite writing = new ReadWrite();
 		writing.saveInFile(json, "file2.json", c);
 	}
+
+	public void newCounter(String fname, Context c, String counterName){
+		List<CounterModel> outlist = new ArrayList<CounterModel>();
+		// Load file
+		List<CounterModel> counters = loadFromFile(fname, c);
+		// Create a list of all counters and their counts
+		for (int i=0; i< counters.size(); i++){
+			CounterModel a = counters.get(i);
+			outlist.add(a);
+		}
+		// Extract everything about the counter
+		for (int i=0; i<outlist.size(); i++){
+			CounterModel b = outlist.get(i);
+			String name = b.getCounterName();
+			if (name.equals(counterName)){
+				outlist.remove(i);
+			}
+		}
+		
+		CounterModel newcounter = new CounterModel();
+		newcounter.setCounterCount(0);
+		newcounter.setCounterName(counterName);
+		outlist.add(newcounter);
+		
+		Gson gson = new Gson();
+		String json = gson.toJson(outlist);
+		ReadWrite writing = new ReadWrite();
+		
+		writing.saveInFile(json, "file2.json", c);
+	}
+
+	//http://java2novice.com/java-collections-and-util/arraylist/sort-comparator/
+	public List<String> orderedCounters(List<CounterModel> countList){
+		Collections.sort(countList, new OrderCount());
+		List<String> newcountList = new ArrayList<String>();
+		for (int i=0; i< countList.size(); i++){
+			CounterModel a = countList.get(i);
+			String cn = a.getCounterName();
+			String cc = String.valueOf(a.getCounterCount());
+			newcountList.add(cn + "   Count: "+cc);
+		}
+		return newcountList;
+	}
+	
 }
+//http://java2novice.com/java-collections-and-util/arraylist/sort-comparator/
+class OrderCount implements Comparator<CounterModel>{
+
+	@Override
+	public int compare(CounterModel e1, CounterModel e2) {
+		if(e1.getCounterCount() < e2.getCounterCount()){
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+}
+

@@ -29,12 +29,5 @@ public class CounterModel {
 		list.add(cDate);
 		countDate = list;
 	}
-	/*
-	public void nCounterModel(String name, int count, Date date){
-		this.counterName = name;
-		this.setCountDate(date);
-		this.counterCount = count;
-	}
-	*/
 
 }
