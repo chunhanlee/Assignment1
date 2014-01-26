@@ -22,7 +22,7 @@ public class ReadWrite {
 
 	public void saveInFile(String counters, String filename, Context c){
 		try {
-			FileOutputStream fos = c.openFileOutput(filename, c.MODE_PRIVATE);
+			FileOutputStream fos = c.openFileOutput(filename, Context.MODE_PRIVATE);
 			fos.write(counters.getBytes());
 			fos.close();
 		} catch (FileNotFoundException e) {
