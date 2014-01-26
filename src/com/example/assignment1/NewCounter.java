@@ -81,28 +81,24 @@ public class NewCounter extends Activity implements OnClickListener {
 			alert.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
 			  // Cancel.
+				dialog.cancel();
 			  }
 			});
+			
 			AlertDialog.Builder alert2 = new AlertDialog.Builder(this);
 			alert2.setTitle("Counter Created!");
 			alert2.setMessage("Your new counter has been created!");
-			/*
-			alert2.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int whichButton) {
-			  // Cancel.
-			  }
-			});
-*/
 
 			Context c = getApplication();
 			ReadWrite checkcounter = new ReadWrite();
 			ReadWrite newcount = new ReadWrite();
 			boolean countexist = false;
 			countexist = checkcounter.checkCounterExist(FILENAME, c, cName);
-			System.out.println(countexist);
-			if (countexist = false){
+			if (countexist == false){
 				newcount.newCounter(FILENAME, c, cName);
 				alert2.show();
+				//http://stackoverflow.com/questions/14853325/how-to-dismiss-alertdialog-in-android
+				//((DialogInterface) alert2).dismiss();
 				Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
 				startActivityForResult(intent1, 0);
 				finish();
@@ -110,32 +106,6 @@ public class NewCounter extends Activity implements OnClickListener {
 			}else{
 				alert.show();
 			}
-			// Reads in the json file
-
-			
-			//counterlist = (List<CounterModel>) reader.loadFromFile(FILENAME, c);
-			//System.out.println("counterlist"+counterlist.get(0));
-			//counterlist.add(new nCounterModel(cName, 0, new Date(System.currentTimeMillis())));
-			
-			//CounterModel newcounter = new CounterModel();
-			//newcounter.setCounterCount(0);
-			//newcounter.setCountDate(new Date(System.currentTimeMillis()), dates);
-			//newcounter.setCounterName(cName);
-			//counterlist.add(newcounter);
-			
-			//Gson gson = new Gson();
-			//String json = gson.toJson(newcounter);
-			//String json = gson.toJson(counterlist);
-			//System.out.println("json string"+json);
-			//ReadWrite writing = new ReadWrite();
-			
-			//writing.saveInFile(json, FILENAME, c);
-			
-
-
 		}
-		
-		
 	}		
-
 }

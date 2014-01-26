@@ -94,7 +94,6 @@ public class MainPage extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		Intent intent = new Intent(arg0.getContext(), NewCounter.class);
 		startActivityForResult(intent, 0);
-		//finish();
 	}
 	
 	@Override
@@ -111,6 +110,4 @@ public class MainPage extends Activity implements OnClickListener {
 		((BaseAdapter) adapter).notifyDataSetChanged();
 		super.onResume();
 	}
-	
-
 }
