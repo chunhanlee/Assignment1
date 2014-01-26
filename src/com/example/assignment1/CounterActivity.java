@@ -1,3 +1,27 @@
+/*
+Counter class for Assignment1 app.
+CounterActivity is called when a counter is selected
+to either be incremented edited or summarized.
+This activity uses the counter_page.xml to control
+all the functionalities specified above.
+    
+    License GPLv3: GNU GPL Version 3
+    <http://gnu.org/licenses/gpl.html>.
+    
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.example.assignment1;
 
 import android.os.Bundle;
@@ -9,7 +33,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
 
 public class CounterActivity extends Activity implements OnClickListener {
 
