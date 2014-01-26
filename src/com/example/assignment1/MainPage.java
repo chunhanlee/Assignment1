@@ -51,8 +51,6 @@ public class MainPage extends Activity implements OnClickListener {
 		ReadWrite order = new ReadWrite();
 		Context context = getApplication();
 		List<List<String>> listOfList = new ArrayList<List<String>>();
-		//listOfList.add(new ArrayList<String>());
-		//listOfList.get(0).add("");
 
 		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
 		outlist = order.orderedCounters(counters);
@@ -109,5 +107,7 @@ public class MainPage extends Activity implements OnClickListener {
 		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();
 		super.onResume();
+		
+		
 	}
 }

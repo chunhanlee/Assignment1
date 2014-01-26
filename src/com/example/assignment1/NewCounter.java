@@ -46,9 +46,8 @@ public class NewCounter extends Activity implements OnClickListener {
 		Button cancelbutton = (Button) findViewById(R.id.cancelButton);
 		cancelbutton.setOnClickListener(this);
 		
-		counterName = (EditText) findViewById(R.id.counterName);
-		cName = counterName.getText().toString();
-		//FILENAME = cName + ".txt";
+		//counterName = (EditText) findViewById(R.id.counterName);
+		//cName = counterName.getText().toString();
 	}
 
 	@Override
@@ -72,7 +71,7 @@ public class NewCounter extends Activity implements OnClickListener {
 		case R.id.saveButton:
 			counterName = (EditText) findViewById(R.id.counterName);
 			cName = counterName.getText().toString();
-			cName = cName.replaceAll("\\s", "");
+			cName = cName.replaceAll("\\s+", "");
 			
 			//http://www.androidsnippets.com/prompt-user-input-with-an-alertdialog
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);

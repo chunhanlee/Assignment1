@@ -57,7 +57,6 @@ public class SummaryModel {
 			monthlist.add(String.valueOf(year)+" "+String.valueOf(month));
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
-		System.out.println(monthlist);
 		Set<String> uniqueSet = new HashSet<String>(monthlist);
 		for (String temp : uniqueSet) {
 			String tempmonthstr = getMonthString(temp);
@@ -83,7 +82,6 @@ public class SummaryModel {
 			weeklist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(week));
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
-		System.out.println(weeklist);
 		Set<String> uniqueSet = new HashSet<String>(weeklist);
 		for (String temp : uniqueSet) {
 			String tempmonthstr = getMonthString(temp);
@@ -111,7 +109,6 @@ public class SummaryModel {
 			datelist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date));
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
-		System.out.println(datelist);
 		Set<String> uniqueSet = new HashSet<String>(datelist);
 		for (String temp : uniqueSet) {
 			String[] templist = temp.split(" ");
@@ -141,7 +138,6 @@ public class SummaryModel {
 			hourlist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date)+ " "+String.valueOf(hour));
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
-		System.out.println(hourlist);
 		Set<String> uniqueSet = new HashSet<String>(hourlist);
 		for (String temp : uniqueSet) {
 			String[] templist = temp.split(" ");
@@ -173,7 +169,6 @@ public class SummaryModel {
 			minlist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date)+ " "+String.valueOf(hour) + " "+String.valueOf(min));
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
-		System.out.println(minlist);
 		Set<String> uniqueSet = new HashSet<String>(minlist);
 		for (String temp : uniqueSet) {
 			String[] templist = temp.split(" ");

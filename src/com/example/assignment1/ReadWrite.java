@@ -19,7 +19,7 @@ import com.google.gson.JsonParser;
 import android.content.Context;
 
 public class ReadWrite {
-	private List<CounterModel> list2;
+
 	public void saveInFile(String counters, String filename, Context c){
 		try {
 			FileOutputStream fos = c.openFileOutput(filename, c.MODE_PRIVATE);
@@ -34,17 +34,9 @@ public class ReadWrite {
 	
 	public List<CounterModel> loadFromFile(String filename, Context c) {
 		List<CounterModel> counters = new ArrayList<CounterModel>();
-		//list2 = counters;
-		//LonelyTweetModel simpleClass = null;
 		try {
 			FileInputStream fis = c.openFileInput(filename);
 			Gson gson = new Gson();
-			//CounterModel rcounters = new CounterModel();
-			//counters.add(gson.fromJson(new InputStreamReader(fis), CounterModel.class));
-			//Object o = counters.get(0);
-			//System.out.println("fromcounterlistinreadwrite"+((CounterModel) o).getCounterCount());
-			//System.out.println("fromcounterlistinreadwrite"+((CounterModel) o).getCounterName());
-			//System.out.println("fromcounterlistinreadwrite"+((CounterModel) o).getCountDate());
 			
 			//http://stackoverflow.com/questions/9598707/gson-throwing-expected-begin-object-but-was-begin-array
 			JsonParser parser = new JsonParser();
@@ -80,8 +72,6 @@ public class ReadWrite {
 			if (outlist.get(i).contains(counterName)){
 				String[] temp = (outlist.get(i)).split(":");
 				String temp1 = temp[1].replaceAll("\\s", "");
-				System.out.println("stringlist" + temp);
-				System.out.println("temp1" + temp1);
 				count = Integer.valueOf(temp1);
 			}
 		}
@@ -193,6 +183,7 @@ public class ReadWrite {
 		List<CounterModel> outlist = new ArrayList<CounterModel>();
 		List<Date> countersDate = new ArrayList<Date>();
 		int counterCount = 0;
+		counterName = counterName.replaceAll("\\s+", "");
 		// Load file
 		List<CounterModel> counters = loadFromFile(fname, c);
 		// Create a list of all counters and their counts

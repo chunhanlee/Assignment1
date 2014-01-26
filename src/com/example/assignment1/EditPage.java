@@ -7,9 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+
+
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -89,6 +88,7 @@ public class EditPage extends Activity implements OnClickListener {
 			break;
 		case R.id.saveButton:
 			cName = counterName.getText().toString();
+			cName = cName.replaceAll("\\s+", "");
 			ReadWrite save = new ReadWrite();
 			Context c = getApplication();
 			ReadWrite checkcounter = new ReadWrite();
