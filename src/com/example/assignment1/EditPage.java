@@ -112,10 +112,10 @@ public class EditPage extends Activity implements OnClickListener {
 			countexist = checkcounter.checkCounterExist("file2.json", c, cName);
 			if (countexist == false){
 				save.renameCounter("file2.json", c, cName, oldcountersName);
+				alert2.show();
 				Intent intent3 = new Intent(arg0.getContext(), CounterActivity.class);
 				intent3.putExtra("CounterName", cName);
 				startActivityForResult(intent3, 0);
-				alert2.show();
 				//http://stackoverflow.com/questions/14853325/how-to-dismiss-alertdialog-in-android
 				finish();
 			}else{

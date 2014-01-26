@@ -170,6 +170,7 @@ public class SummaryModel {
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(minlist);
+		System.out.println(uniqueSet);
 		for (String temp : uniqueSet) {
 			String[] templist = temp.split(" ");
 			String tempmonthstr = getMonthString(temp);
@@ -252,85 +253,85 @@ public class SummaryModel {
 		String str = null;
 		String[] templist = hstr.split(" ");
 		String i = templist[3];
-		if (i.equals("1") || i.equals("13")){
-			if (i.equals("1")){
+		if (i.equals("0") || i.equals("12")){
+			if (i.equals("0")){
 				str = "1:00 AM";
 			}else{
 				str = "1:00 PM";
 			}
 		}
-		if (i.equals("2") || i.equals("14")){
-			if (i.equals("2")){
+		if (i.equals("1") || i.equals("13")){
+			if (i.equals("1")){
 				str = "2:00 AM";
 			}else{
 				str = "2:00 PM";
 			}
 		}
-		if (i.equals("3") || i.equals("15")){
-			if (i.equals("3")){
+		if (i.equals("2") || i.equals("14")){
+			if (i.equals("2")){
 				str = "3:00 AM";
 			}else{
 				str = "3:00 PM";
 			}
 		}
-		if (i.equals("4") || i.equals("16")){
-			if (i.equals("4")){
+		if (i.equals("3") || i.equals("15")){
+			if (i.equals("3")){
 				str = "4:00 AM";
 			}else{
 				str = "4:00 PM";
 			}
 		}
-		if (i.equals("5") || i.equals("17")){
-			if (i.equals("5")){
+		if (i.equals("4") || i.equals("16")){
+			if (i.equals("4")){
 				str = "5:00 AM";
 			}else{
 				str = "5:00 PM";
 			}
 		}
-		if (i.equals("6") || i.equals("18")){
-			if (i.equals("6")){
+		if (i.equals("5") || i.equals("17")){
+			if (i.equals("5")){
 				str = "6:00 AM";
 			}else{
 				str = "6:00 PM";
 			}
 		}
-		if (i.equals("7") || i.equals("19")){
-			if (i.equals("7")){
+		if (i.equals("6") || i.equals("18")){
+			if (i.equals("6")){
 				str = "7:00 AM";
 			}else{
 				str = "7:00 PM";
 			}
 		}
-		if (i.equals("8") || i.equals("20")){
-			if (i.equals("8")){
+		if (i.equals("7") || i.equals("19")){
+			if (i.equals("7")){
 				str = "8:00 AM";
 			}else{
 				str = "8:00 PM";
 			}
 		}
-		if (i.equals("9") || i.equals("21")){
-			if (i.equals("9")){
+		if (i.equals("8") || i.equals("20")){
+			if (i.equals("8")){
 				str = "9:00 AM";
 			}else{
 				str = "9:00 PM";
 			}
 		}
-		if (i.equals("10") || i.equals("22")){
-			if (i.equals("10")){
+		if (i.equals("9") || i.equals("21")){
+			if (i.equals("9")){
 				str = "10:00 AM";
 			}else{
 				str = "10:00 PM";
 			}
 		}
-		if (i.equals("11") || i.equals("23")){
-			if (i.equals("11")){
+		if (i.equals("10") || i.equals("22")){
+			if (i.equals("10")){
 				str = "11:00 AM";
 			}else{
 				str = "11:00 PM";
 			}
 		}
-		if (i.equals("12") || i.equals("24")){
-			if (i.equals("12")){
+		if (i.equals("11") || i.equals("23")){
+			if (i.equals("11")){
 				str = "12:00 AM";
 			}else{
 				str = "12:00 PM";
