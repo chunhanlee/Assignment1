@@ -19,6 +19,7 @@ public class EditPage extends Activity implements OnClickListener {
 	private EditText counterName;
 	private String cName;
 	private String oldcountersName;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

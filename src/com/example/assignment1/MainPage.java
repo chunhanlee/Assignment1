@@ -1,19 +1,10 @@
 package com.example.assignment1;
 
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.ClipData.Item;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
@@ -24,21 +15,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 public class MainPage extends Activity implements OnClickListener {
 	private ListView lv;
-	private FileInputStream fis;
-	private InputStreamReader isr;
-	private BufferedReader br;
 	private List<String> outlist = new ArrayList<String>();
-	private String cName;
-	private FileOutputStream fos;
-	//private List<String> outlist1 = new ArrayList<String>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,7 +32,7 @@ public class MainPage extends Activity implements OnClickListener {
 		ReadWrite reader = new ReadWrite();
 		ReadWrite order = new ReadWrite();
 		Context context = getApplication();
-		List<List<String>> listOfList = new ArrayList<List<String>>();
+		//List<List<String>> listOfList = new ArrayList<List<String>>();
 
 		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
 		outlist = order.orderedCounters(counters);

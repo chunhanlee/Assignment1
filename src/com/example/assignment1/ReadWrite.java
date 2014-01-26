@@ -82,16 +82,12 @@ public class ReadWrite {
 	
 	public void setCount(String fname, Context c, String counterName, int countVal){
 		List<CounterModel> outlist = new ArrayList<CounterModel>();
-		//String countersName; 
-		//int counterCount = 0;
 		List<Date> countersDate = new ArrayList<Date>();
 		// Load file
 		List<CounterModel> counters = loadFromFile(fname, c);
 		// Create a list of all counters and their counts
 		for (int i=0; i< counters.size(); i++){
 			CounterModel a = counters.get(i);
-			//String cn = a.getCounterName();
-			//String cc = String.valueOf(a.getCounterCount());
 			outlist.add(a);
 		}
 		// Extract everything about the counter
@@ -100,8 +96,6 @@ public class ReadWrite {
 			String name = b.getCounterName();
 			if (name.equals(counterName)){
 				CounterModel counter = outlist.get(i);
-				//countersName = counter.getCounterName();
-				//counterCount = counter.getCounterCount();
 				countersDate = counter.getCounterDateList();
 				outlist.remove(i);
 			}
@@ -141,13 +135,10 @@ public class ReadWrite {
 				outlist.remove(i);
 			}
 		}
-		
 		Gson gson = new Gson();
 		String json = gson.toJson(outlist);
 		ReadWrite writing = new ReadWrite();
-		
 		writing.saveInFile(json, fname, c);
-		
 	}
 	
 	public void resetCounter(String fname, Context c, String counterName){
@@ -198,7 +189,6 @@ public class ReadWrite {
 			String name = b.getCounterName();
 			if (name.equals(oldcounterName)){
 				CounterModel counter = outlist.get(i);
-				//countersName = counter.getCounterName();
 				counterCount = counter.getCounterCount();
 				countersDate = counter.getCounterDateList();
 				outlist.remove(i);

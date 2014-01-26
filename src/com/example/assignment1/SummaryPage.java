@@ -1,6 +1,5 @@
 package com.example.assignment1;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +21,7 @@ public class SummaryPage extends Activity implements OnClickListener{
 	String countersName;
 	private List<String> outlist = new ArrayList<String>();
 	private ListView lv;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

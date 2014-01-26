@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class NewCounter extends Activity implements OnClickListener {
+	
 	static final String FILENAME = "file2.json";
 	private EditText counterName;
 	private String cName;
@@ -27,9 +28,6 @@ public class NewCounter extends Activity implements OnClickListener {
 		
 		Button cancelbutton = (Button) findViewById(R.id.cancelButton);
 		cancelbutton.setOnClickListener(this);
-		
-		//counterName = (EditText) findViewById(R.id.counterName);
-		//cName = counterName.getText().toString();
 	}
 
 	@Override
