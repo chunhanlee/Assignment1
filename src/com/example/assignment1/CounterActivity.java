@@ -100,8 +100,6 @@ public class CounterActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.clicker:
 			Context context = getApplication();
-			ReadWrite getcounts = new ReadWrite();
-			curCount = getcounts.getCount("file2.json", context, countersName);
 			curCount++;
 			ReadWrite setcounts = new ReadWrite();
 			count.setText(String.valueOf(curCount));
