@@ -90,18 +90,27 @@ public class CounterActivity extends Activity implements OnClickListener {
 		
 		Button edit = (Button) findViewById(R.id.editButton);
 		edit.setOnClickListener(this);
-		
 	}
-
+	/**
+	 * Called once any of the button specified above is clicked
+	 * Then catch which button was clicked to respond respectfully.
+	 */
 	@Override
 	public void onClick(View arg0) {
+		
+		// To catch the id of which button was clicked
 		switch(arg0.getId())
 		{
+		// Back button transitions back to the main activity page 
+		//  and finishes this activity.
 		case R.id.backButton:
 			Intent intent = new Intent(arg0.getContext(), MainPage.class);
 			startActivityForResult(intent, 0);
 			finish();
 			break;
+			
+		// Summary button transitions to the summary activity page
+		//  passing on the name of the counter and finishes this activity.
 		case R.id.summaryButton:
 			String dTP1 = countersName;
 			Intent intent3 = new Intent(this, SummaryPage.class);
@@ -109,6 +118,9 @@ public class CounterActivity extends Activity implements OnClickListener {
 			startActivityForResult(intent3, 0);
 			finish();
 			break;
+			
+		// Edit button transitions to the edit activity page
+		//  passing on the name of the counter and finishes this activity.
 		case R.id.editButton:
 			String dTP = countersName;
 			Intent intent2 = new Intent(this, EditPage.class);
@@ -116,6 +128,9 @@ public class CounterActivity extends Activity implements OnClickListener {
 			startActivityForResult(intent2, 0);
 			finish();
 			break;
+			
+		//	Clicker button increments the count of the counter once
+		//   then save the new count back into the respective counter.
 		case R.id.clicker:
 			Context context = getApplication();
 			curCount++;
