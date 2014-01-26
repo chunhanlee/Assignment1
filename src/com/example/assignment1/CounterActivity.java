@@ -66,16 +66,20 @@ public class CounterActivity extends Activity implements OnClickListener {
 			Intent intent3 = new Intent(this, SummaryPage.class);
 			intent3.putExtra("CounterName", dTP1);
 			startActivityForResult(intent3, 0);
+			finish();
 			break;
 		case R.id.editButton:
 			String dTP = countersName;
 			Intent intent2 = new Intent(this, EditPage.class);
 			intent2.putExtra("CounterName", dTP);
 			startActivityForResult(intent2, 0);
+			finish();
 			break;
 		case R.id.clicker:
-			curCount++;
 			Context context = getApplication();
+			ReadWrite getcounts = new ReadWrite();
+			curCount = getcounts.getCount("file2.json", context, countersName);
+			curCount++;
 			ReadWrite setcounts = new ReadWrite();
 			count.setText(String.valueOf(curCount));
 			setcounts.setCount("file2.json", context, countersName, curCount);

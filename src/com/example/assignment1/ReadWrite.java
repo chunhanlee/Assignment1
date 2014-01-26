@@ -64,7 +64,8 @@ public class ReadWrite {
 		for (int i=0; i< counters.size(); i++){
 			CounterModel a = counters.get(i);
 			String cn = a.getCounterName();
-			String cc = String.valueOf(a.getCounterCount());
+			List<Date> b= a.getCounterDateList();
+			String cc = String.valueOf(b.size());
 			outlist.add(cn + "   Count: "+cc);
 		}
 		// Locate the counter 
@@ -266,7 +267,8 @@ public class ReadWrite {
 		for (int i=0; i< countList.size(); i++){
 			CounterModel a = countList.get(i);
 			String cn = a.getCounterName();
-			String cc = String.valueOf(a.getCounterCount());
+			List<Date> b= a.getCounterDateList();
+			String cc = String.valueOf(b.size());
 			newcountList.add(cn + "   Count: "+cc);
 		}
 		return newcountList;

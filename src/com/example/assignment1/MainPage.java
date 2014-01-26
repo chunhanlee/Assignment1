@@ -57,7 +57,8 @@ public class MainPage extends Activity implements OnClickListener {
 		for (int i=0; i< counters.size(); i++){
 			CounterModel a = counters.get(i);
 			String cn = a.getCounterName();
-			String cc = String.valueOf(a.getCounterCount());
+			List<Date> b= a.getCounterDateList();
+			String cc = String.valueOf(b.size());
 			outlist.add(cn + "   Count: "+cc);
 		}
 		

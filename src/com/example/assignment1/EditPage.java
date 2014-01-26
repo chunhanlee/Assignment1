@@ -1,21 +1,9 @@
 package com.example.assignment1;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
@@ -24,17 +12,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class EditPage extends Activity implements OnClickListener {
 	
-	private String FILENAME;
+	//private String FILENAME;
 	private EditText counterName;
-	private String ncount;
-	private FileOutputStream fos;
-	private FileInputStream fis;
-	private InputStreamReader isr;
-	private BufferedReader br;
 	private String cName;
 	private String oldcountersName;
 	@Override
@@ -61,8 +43,8 @@ public class EditPage extends Activity implements OnClickListener {
 		//http://stackoverflow.com/questions/4590957/how-to-set-text-in-an-edittext
 		counterName = (EditText) findViewById(R.id.counterName);
 		counterName.setText(oldcountersName, TextView.BufferType.EDITABLE);
-		cName = counterName.getText().toString();
-		FILENAME = cName + ".txt";
+		//cName = counterName.getText().toString();
+		//FILENAME = cName + ".txt";
 		
 	}
 
@@ -108,16 +90,24 @@ public class EditPage extends Activity implements OnClickListener {
 			alert2.setTitle("Counter Renamed!");
 			alert2.setMessage("Your counter has been renamed!");
 			
-			// Check if counter already exists
-			countexist = checkcounter.checkCounterExist("file2.json", c, cName);
-			if (countexist == false){
-				save.renameCounter("file2.json", c, cName, oldcountersName);
-				alert2.show();
+			alert2.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+			  // Ok button to transition to next page
 				Intent intent3 = new Intent(arg0.getContext(), CounterActivity.class);
 				intent3.putExtra("CounterName", cName);
 				startActivityForResult(intent3, 0);
 				//http://stackoverflow.com/questions/14853325/how-to-dismiss-alertdialog-in-android
 				finish();
+			  }
+			});
+			
+			
+			// Check if counter already exists
+			countexist = checkcounter.checkCounterExist("file2.json", c, cName);
+			if (countexist == false){
+				save.renameCounter("file2.json", c, cName, oldcountersName);
+				alert2.show();
+
 			}else{
 				alert.show();
 			}

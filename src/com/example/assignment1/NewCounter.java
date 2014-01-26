@@ -1,16 +1,5 @@
 package com.example.assignment1;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import com.google.gson.Gson;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,19 +11,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class NewCounter extends Activity implements OnClickListener {
 	static final String FILENAME = "file2.json";
 	private EditText counterName;
-	private String ncount;
-	private FileOutputStream fos;
-	private FileInputStream fis;
-	private InputStreamReader isr;
-	private BufferedReader br;
 	private String cName;
-	private List<Date> dates = new ArrayList<Date>(); 
-	private List<CounterModel> counterlist = new ArrayList<CounterModel>();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,7 +40,7 @@ public class NewCounter extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public void onClick(View arg0) {
+	public void onClick(final View arg0) {
 		
 		//http://stackoverflow.com/questions/3320115/android-onclicklistener-identify-a-button
 		switch(arg0.getId())
@@ -80,13 +62,21 @@ public class NewCounter extends Activity implements OnClickListener {
 			alert.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
 			  // Cancel.
-				dialog.cancel();
 			  }
 			});
 			
 			AlertDialog.Builder alert2 = new AlertDialog.Builder(this);
 			alert2.setTitle("Counter Created!");
 			alert2.setMessage("Your new counter has been created!");
+			alert2.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// Ok to transition to the next page
+				//http://stackoverflow.com/questions/14853325/how-to-dismiss-alertdialog-in-android
+				Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
+				startActivityForResult(intent1, 0);
+				finish();
+			  }
+			});
 
 			Context c = getApplication();
 			ReadWrite checkcounter = new ReadWrite();
@@ -96,11 +86,6 @@ public class NewCounter extends Activity implements OnClickListener {
 			if (countexist == false){
 				newcount.newCounter(FILENAME, c, cName);
 				alert2.show();
-				//http://stackoverflow.com/questions/14853325/how-to-dismiss-alertdialog-in-android
-				//((DialogInterface) alert2).dismiss();
-				Intent intent1 = new Intent(arg0.getContext(), MainPage.class);
-				startActivityForResult(intent1, 0);
-				finish();
 				break;
 			}else{
 				alert.show();

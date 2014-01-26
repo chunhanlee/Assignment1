@@ -45,6 +45,7 @@ public class SummaryPage extends Activity implements OnClickListener{
 				datelist = a.getCounterDateList();
 			}
 		}
+		System.out.println(datelist);
 		SummaryModel summ = new SummaryModel();
 		outlist.add("Counts per minute:");
 		outlist.addAll(summ.getCountMinut(datelist));
