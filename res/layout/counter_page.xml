@@ -41,7 +41,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/editButton"
         android:layout_below="@+id/countView"
-        android:layout_marginTop="140dp"
         android:text="@string/counter" />
 
     <TextView
@@ -50,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/summaryButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp"
-        android:text="@string/count" />
+        android:text="@string/count"
+        android:textSize="250sp" />
 
 </RelativeLayout>

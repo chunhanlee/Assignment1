@@ -20,6 +20,7 @@ public class SummaryModel {
 	private int hour;
 	public List<String> getCountYear(List<Date> counterdatelist){
 		List<String> PerYear = new ArrayList<String>();
+		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<Integer> yearlist = new ArrayList<Integer>();
 		// Check for counters with no counts
@@ -42,6 +43,7 @@ public class SummaryModel {
 	}
 	public List<String> getCountMonth(List<Date> counterdatelist){
 		List<String> PerMonth = new ArrayList<String>();
+		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> monthlist = new ArrayList<String>();
 		// Check for counters with no counts
@@ -66,6 +68,7 @@ public class SummaryModel {
 	}
 	public List<String> getCountWeek(List<Date> counterdatelist){
 		List<String> PerWeek = new ArrayList<String>();
+		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> weeklist = new ArrayList<String>();
 		// Check for counters with no counts
@@ -93,6 +96,7 @@ public class SummaryModel {
 	}
 	public List<String> getCountDate(List<Date> counterdatelist){
 		List<String> PerDate = new ArrayList<String>();
+		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> datelist = new ArrayList<String>();
 		// Check for counters with no counts
@@ -121,6 +125,7 @@ public class SummaryModel {
 	}
 	public List<String> getCountHour(List<Date> counterdatelist){
 		List<String> PerHour = new ArrayList<String>();
+		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> hourlist = new ArrayList<String>();
 		// Check for counters with no counts
@@ -151,6 +156,7 @@ public class SummaryModel {
 	}
 	public List<String> getCountMinut(List<Date> counterdatelist){
 		List<String> PerMin = new ArrayList<String>();
+		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> minlist = new ArrayList<String>();
 		// Check for counters with no counts

@@ -59,7 +59,6 @@ public class MainPage extends Activity implements OnClickListener {
 				Intent i = new Intent(getApplicationContext(), CounterActivity.class);
 				i.putExtra("CounterName", countNames[0]);
 				startActivity(i);
-				//finish();
 			}
 		});
 	}

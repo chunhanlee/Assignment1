@@ -30,12 +30,12 @@ public final class R {
         public static final int cancelButton=0x7f080006;
         public static final int clicker=0x7f080003;
         public static final int countView=0x7f080004;
-        public static final int counterName=0x7f08000a;
-        public static final int deleteButton=0x7f080007;
+        public static final int counterName=0x7f080007;
+        public static final int deleteButton=0x7f080009;
         public static final int editButton=0x7f080002;
         public static final int list1=0x7f08000b;
         public static final int listView2=0x7f08000d;
-        public static final int resetButton=0x7f080009;
+        public static final int resetButton=0x7f08000a;
         public static final int saveButton=0x7f080005;
         public static final int summaryButton=0x7f080001;
         public static final int textView2=0x7f080008;

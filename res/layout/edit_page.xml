@@ -24,34 +24,6 @@
         android:layout_alignParentTop="true"
         android:text="@string/cancelButton" />
 
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"
-        android:text="@string/deleteButton" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/resetButton"
-        android:layout_below="@+id/cancelButton"
-        android:layout_marginTop="62dp"
-        android:text="@string/counterName1"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/deleteButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp"
-        android:text="@string/resetButton" />
-
     <EditText
         android:id="@+id/counterName"
         android:layout_width="wrap_content"
@@ -61,5 +33,33 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="text" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/saveButton"
+        android:layout_marginBottom="58dp"
+        android:text="@string/deleteButton" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/deleteButton"
+        android:layout_alignBottom="@+id/deleteButton"
+        android:layout_alignParentLeft="true"
+        android:text="@string/resetButton" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/saveButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:text="@string/counterName1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
