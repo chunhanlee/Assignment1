@@ -28,35 +28,60 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * CounterActivity is called when a counter is selected
+ * to either be incremented edited or summarized.
+ * @author Chun-Han Lee
+ *
+ */
 public class CounterActivity extends Activity implements OnClickListener {
 
+	// declared all needed variables
 	private TextView count;
 	int curCount = 0;
 	String countersName;
-
+	
+	/**
+	 * Called when the activity is first created. Receives 
+	 * intent from the main activity to create the counter
+	 * for the specified by intent.
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.counter_page);
 		
+		// Set count as the value displayed
 		count = (TextView) findViewById(R.id.countView);
+		
+		// Look for the button clicker
 		Button click = (Button) findViewById(R.id.clicker);
+		
+		// Create intent and get the name from extra passed
+		//  by the main activity.
 		Intent i = getIntent();
 		countersName = i.getStringExtra("CounterName");
+		
+		// Set clicker name as the counter's name.
 		click.setText(countersName);
 		click.setOnClickListener(this);
+		
+		// Create instance of readwrite class to get counts
 		Context context = getApplication();
 		ReadWrite getcounts = new ReadWrite();
+		
 		// Get saved count for the counter 
 		curCount = getcounts.getCount("file2.json", context, countersName);
 		count.setText(""+curCount);
 		
+		// Set and name all the buttons associated with the display
+		//  At the same time set onclicklistener for all buttons. 
 		Button back = (Button) findViewById(R.id.backButton);
 		back.setOnClickListener(this);
 		
@@ -66,13 +91,6 @@ public class CounterActivity extends Activity implements OnClickListener {
 		Button edit = (Button) findViewById(R.id.editButton);
 		edit.setOnClickListener(this);
 		
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 
 	@Override
