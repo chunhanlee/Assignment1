@@ -133,9 +133,13 @@ public class CounterActivity extends Activity implements OnClickListener {
 		//   then save the new count back into the respective counter.
 		case R.id.clicker:
 			Context context = getApplication();
+			ReadWrite getcounts = new ReadWrite();
+			curCount = getcounts.getCount("file2.json", context, countersName);
 			curCount++;
+			System.out.println(curCount);
 			ReadWrite setcounts = new ReadWrite();
 			count.setText(String.valueOf(curCount));
+			System.out.println(curCount);
 			setcounts.setCount("file2.json", context, countersName, curCount);
 			break;
 		}

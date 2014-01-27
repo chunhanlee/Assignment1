@@ -65,12 +65,16 @@ public class ReadWrite {
 			CounterModel a = counters.get(i);
 			String cn = a.getCounterName();
 			List<Date> b= a.getCounterDateList();
+			System.out.println(b);
 			String cc = String.valueOf(b.size());
+			System.out.println(cc);
 			outlist.add(cn + "   Count: "+cc);
 		}
 		// Locate the counter 
 		for (int i=0; i<outlist.size(); i++){
-			if (outlist.get(i).contains(counterName)){
+			String[] temp2 = outlist.get(i).split(" ");
+			System.out.println("temp"+temp2[0]);
+			if (temp2[0].equals(counterName)){
 				String[] temp = (outlist.get(i)).split(":");
 				String temp1 = temp[1].replaceAll("\\s", "");
 				count = Integer.valueOf(temp1);
