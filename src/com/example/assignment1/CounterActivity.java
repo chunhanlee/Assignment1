@@ -137,10 +137,8 @@ public class CounterActivity extends Activity implements OnClickListener {
 			ReadWrite getcounts = new ReadWrite();
 			curCount = getcounts.getCount(FILENAME, context, countersName);
 			curCount++;
-			System.out.println(curCount);
 			ReadWrite setcounts = new ReadWrite();
 			count.setText(String.valueOf(curCount));
-			System.out.println(curCount);
 			setcounts.setCount(FILENAME, context, countersName, curCount);
 			break;
 		}

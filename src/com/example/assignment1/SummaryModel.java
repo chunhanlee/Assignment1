@@ -176,7 +176,6 @@ public class SummaryModel {
 		}
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(minlist);
-		System.out.println(uniqueSet);
 		for (String temp : uniqueSet) {
 			String[] templist = temp.split(" ");
 			String tempmonthstr = getMonthString(temp);
