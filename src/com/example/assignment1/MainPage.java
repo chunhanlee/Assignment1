@@ -21,6 +21,7 @@ import android.widget.TextView;
 public class MainPage extends Activity implements OnClickListener {
 	private ListView lv;
 	private List<String> outlist = new ArrayList<String>();
+	static final String FILENAME = "file2.json";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class MainPage extends Activity implements OnClickListener {
 		Context context = getApplication();
 		//List<List<String>> listOfList = new ArrayList<List<String>>();
 
-		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
+		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile(FILENAME ,context);
 		outlist = order.orderedCounters(counters);
 		for (int i=0; i< counters.size(); i++){
 			CounterModel a = counters.get(i);
@@ -82,7 +83,7 @@ public class MainPage extends Activity implements OnClickListener {
 		ReadWrite reader = new ReadWrite();
 		Context context = getApplication();
 		ReadWrite order = new ReadWrite();
-		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
+		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile(FILENAME ,context);
 		outlist = order.orderedCounters(counters);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
 		lv = (ListView) findViewById(R.id.list1);

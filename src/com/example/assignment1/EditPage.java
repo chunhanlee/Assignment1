@@ -19,6 +19,7 @@ public class EditPage extends Activity implements OnClickListener {
 	private EditText counterName;
 	private String cName;
 	private String oldcountersName;
+	static final String FILENAME = "file2.json";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,9 +105,9 @@ public class EditPage extends Activity implements OnClickListener {
 			
 			
 			// Check if counter already exists
-			countexist = checkcounter.checkCounterExist("file2.json", c, cName);
+			countexist = checkcounter.checkCounterExist(FILENAME, c, cName);
 			if (countexist == false){
-				save.renameCounter("file2.json", c, cName, oldcountersName);
+				save.renameCounter(FILENAME, c, cName, oldcountersName);
 				alert2.show();
 
 			}else{
@@ -121,7 +122,7 @@ public class EditPage extends Activity implements OnClickListener {
 			alert3.setMessage("Are you sure you would like to reset this counter?");
 			alert3.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
-					reset.resetCounter("file2.json", c1, oldcountersName);
+					reset.resetCounter(FILENAME, c1, oldcountersName);
 					Intent intent2 = new Intent(arg0.getContext(), CounterActivity.class);
 					intent2.putExtra("CounterName", oldcountersName);
 					startActivityForResult(intent2, 0);
@@ -144,7 +145,7 @@ public class EditPage extends Activity implements OnClickListener {
 			alert4.setMessage("Are you sure you would like to delete this counter?");
 			alert4.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
-					delete.deleteCounter("file2.json", c2, oldcountersName);
+					delete.deleteCounter(FILENAME, c2, oldcountersName);
 					Intent intent4 = new Intent(arg0.getContext(), MainPage.class);
 					startActivityForResult(intent4, 0);
 					finish();

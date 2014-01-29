@@ -117,7 +117,7 @@ public class ReadWrite {
 		//System.out.println("json string"+json);
 		ReadWrite writing = new ReadWrite();
 		
-		writing.saveInFile(json, "file2.json", c);
+		writing.saveInFile(json, fname, c);
 		
 	}
 
@@ -172,7 +172,7 @@ public class ReadWrite {
 		String json = gson.toJson(outlist);
 		ReadWrite writing = new ReadWrite();
 		
-		writing.saveInFile(json, "file2.json", c);
+		writing.saveInFile(json, fname, c);
 	}
 	
 	public void renameCounter(String fname, Context c, String counterName, String oldcounterName){
@@ -208,7 +208,7 @@ public class ReadWrite {
 		Gson gson = new Gson();
 		String json = gson.toJson(outlist);
 		ReadWrite writing = new ReadWrite();
-		writing.saveInFile(json, "file2.json", c);
+		writing.saveInFile(json, fname, c);
 	}
 
 	public void newCounter(String fname, Context c, String counterName){
@@ -238,7 +238,7 @@ public class ReadWrite {
 		String json = gson.toJson(outlist);
 		ReadWrite writing = new ReadWrite();
 		
-		writing.saveInFile(json, "file2.json", c);
+		writing.saveInFile(json, fname, c);
 	}
 
 	public boolean checkCounterExist(String fname, Context c, String counterName){

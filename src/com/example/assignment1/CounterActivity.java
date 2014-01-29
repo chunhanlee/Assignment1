@@ -45,6 +45,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 	private TextView count;
 	int curCount = 0;
 	String countersName;
+	static final String FILENAME = "file2.json";
 	
 	/**
 	 * Called when the activity is first created. Receives 
@@ -77,7 +78,7 @@ public class CounterActivity extends Activity implements OnClickListener {
 		ReadWrite getcounts = new ReadWrite();
 		
 		// Get saved count for the counter 
-		curCount = getcounts.getCount("file2.json", context, countersName);
+		curCount = getcounts.getCount(FILENAME, context, countersName);
 		count.setText(""+curCount);
 		
 		// Set and name all the buttons associated with the display
@@ -134,13 +135,13 @@ public class CounterActivity extends Activity implements OnClickListener {
 		case R.id.clicker:
 			Context context = getApplication();
 			ReadWrite getcounts = new ReadWrite();
-			curCount = getcounts.getCount("file2.json", context, countersName);
+			curCount = getcounts.getCount(FILENAME, context, countersName);
 			curCount++;
 			System.out.println(curCount);
 			ReadWrite setcounts = new ReadWrite();
 			count.setText(String.valueOf(curCount));
 			System.out.println(curCount);
-			setcounts.setCount("file2.json", context, countersName, curCount);
+			setcounts.setCount(FILENAME, context, countersName, curCount);
 			break;
 		}
 	}

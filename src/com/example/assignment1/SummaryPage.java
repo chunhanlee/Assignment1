@@ -21,7 +21,7 @@ public class SummaryPage extends Activity implements OnClickListener{
 	String countersName;
 	private List<String> outlist = new ArrayList<String>();
 	private ListView lv;
-	
+	static final String FILENAME = "file2.json";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,7 +36,7 @@ public class SummaryPage extends Activity implements OnClickListener{
 		ReadWrite reader = new ReadWrite();
 		Context context = getApplication();
 
-		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile("file2.json" ,context);
+		List<CounterModel> counters = (List<CounterModel>) reader.loadFromFile(FILENAME,context);
 		List<Date> datelist = new ArrayList<Date>();
 		for (int it =0; it< counters.size(); it++){
 			CounterModel a = counters.get(it);
