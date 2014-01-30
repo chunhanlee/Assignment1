@@ -32,25 +32,70 @@ import java.util.List;
  *
  */
 public class CounterModel {
+	// Declare all needed variables of the counter model
+	/**
+	 * @uml.property  name="counterName"
+	 */
 	private String counterName;
+	/**
+	 * @uml.property  name="counterCount"
+	 */
 	private int counterCount;
+	/**
+	 * @uml.property  name="countDateList"
+	 */
 	private List<Date> countDateList = new ArrayList<Date>();
 	
+	/**
+	 * Getter for the number of counts for the counter
+	 * @return  counts for the specific counter
+	 * @uml.property  name="counterCount"
+	 */
 	public int getCounterCount() {
 		return counterCount;
 	}
+	
+	/**
+	 * Setter for the number of counts for the counter
+	 * @param counterCount  set the counts for the counter
+	 * @uml.property  name="counterCount"
+	 */
 	public void setCounterCount(int counterCount) {
 		this.counterCount = counterCount;
 	}
+	
+	/**
+	 * Getter for the counter's name
+	 * @return  counters name
+	 * @uml.property  name="counterName"
+	 */
 	public String getCounterName() {
 		return counterName;
 	}
+	
+	/**
+	 * Setter for the counter's name
+	 * @param counterName  set the counter's name
+	 * @uml.property  name="counterName"
+	 */
 	public void setCounterName(String counterName) {
 		this.counterName = counterName;
 	}
+	
+	/**
+	 * Getter for the list of dates the counter was pressed
+	 * @return a list of dates
+	 */
 	public List<Date> getCounterDateList() {
 		return countDateList;
 	}
+	
+	/**
+	 * Setter for the the new dates the counter was pressed
+	 * @param cDate
+	 * @param list
+	 *  increase the date list by the new pressed dates
+	 */
 	public void setCountDateList(Date cDate, List<Date> list) {
 		list.add(cDate);
 		countDateList = list;

@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="/Users/john2/Downloads/google-gson-2.2.4/gson-2.2.4-javadoc.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/john2/Downloads/google-gson-2.2.4/gson-2.2.4-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/john2/Downloads/google-gson-2.2.4/gson-2.2.4.jar"/>
+	<classpathentry kind="con" path="com.soyatec.uml.CONTAINER"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

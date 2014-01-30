@@ -17,9 +17,23 @@ import android.widget.ListView;
 
 public class SummaryPage extends Activity implements OnClickListener{
 
+	/**
+	 * @uml.property  name="curCount"
+	 */
 	int curCount = 0;
+	/**
+	 * @uml.property  name="countersName"
+	 */
 	String countersName;
+	/**
+	 * @uml.property  name="outlist"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
 	private List<String> outlist = new ArrayList<String>();
+	/**
+	 * @uml.property  name="lv"
+	 * @uml.associationEnd  
+	 */
 	private ListView lv;
 	static final String FILENAME = "file2.json";
 	@Override

@@ -9,14 +9,42 @@ import java.util.List;
 import java.util.Set;
 
 public class SummaryModel {
+	/**
+	 * @uml.property  name="dateList"
+	 */
 	List<Date> dateList = new ArrayList<Date>();
+	/**
+	 * @uml.property  name="dates"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	CounterModel dates = new CounterModel();
+	/**
+	 * @uml.property  name="tempdate"
+	 */
 	Date tempdate = new Date();
+	/**
+	 * @uml.property  name="min"
+	 */
 	private int min;
+	/**
+	 * @uml.property  name="year"
+	 */
 	private int year;
+	/**
+	 * @uml.property  name="month"
+	 */
 	private int month;
+	/**
+	 * @uml.property  name="week"
+	 */
 	private int week;
+	/**
+	 * @uml.property  name="date"
+	 */
 	private int date;
+	/**
+	 * @uml.property  name="hour"
+	 */
 	private int hour;
 	public List<String> getCountYear(List<Date> counterdatelist){
 		List<String> PerYear = new ArrayList<String>();

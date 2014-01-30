@@ -19,7 +19,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainPage extends Activity implements OnClickListener {
+	/**
+	 * @uml.property  name="lv"
+	 * @uml.associationEnd  
+	 */
 	private ListView lv;
+	/**
+	 * @uml.property  name="outlist"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
 	private List<String> outlist = new ArrayList<String>();
 	static final String FILENAME = "file2.json";
 	@Override

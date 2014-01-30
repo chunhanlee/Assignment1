@@ -15,7 +15,14 @@ import android.widget.EditText;
 public class NewCounter extends Activity implements OnClickListener {
 	
 	static final String FILENAME = "file2.json";
+	/**
+	 * @uml.property  name="counterName"
+	 * @uml.associationEnd  
+	 */
 	private EditText counterName;
+	/**
+	 * @uml.property  name="cName"
+	 */
 	private String cName;
 
 	@Override
