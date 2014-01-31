@@ -183,53 +183,57 @@ public class SummaryModel {
 		return PerWeek;
 	}
 	
-	/**
-	 * Get count date method takes in a date list of a 
-	 * associated counter and return the list of all the years, months,
-	 * week, and date the counter has been clicked.
-	 * @param counterdatelist
-	 * @return
-	 */
-	public List<String> getCountDate(List<Date> counterdatelist){
 		
-		// Declare all needed variables 
-		List<String> PerDate = new ArrayList<String>();
-		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
-		Calendar cal = Calendar.getInstance();
-		List<String> datelist = new ArrayList<String>();
-		
-		// Check for counters with no counts
-		//  Return "none"as a count
-		if (counterdatelist.isEmpty() || counterdatelist == null){
-			PerDate.add("None");
-			return PerDate;
-		}
-		
-		// Extract the year, the month, the week and the date of all the dates for the counter
-		//  and stores them in a list
-		for (int it =0; it< counterdatelist.size(); it++){
-			tempdate = counterdatelist.get(it);
-			cal.setTime(tempdate);
-			year = cal.get(Calendar.YEAR);
-			month = cal.get(Calendar.MONTH);
-			date = cal.get(Calendar.DATE);
-			datelist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date));
-		}
-		
-		// Looks at all the years, months, weeks, and dates of the associated counter and append the count
-		//  into a list of strings
-		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
-		Set<String> uniqueSet = new HashSet<String>(datelist);
-		for (String temp : uniqueSet) {
-			String[] templist = temp.split(" ");
-			String tempmonthstr = getMonthString(temp);
-			String tempdatestr = templist[2];
-			PerDate.add(tempmonthstr+" "+tempdatestr+ " -- " + String.valueOf(Collections.frequency(datelist, temp)));
-		}
-		
-		// Return the list of counts
-		return PerDate;
-	}
+			
+			/** 
+			 * Get count date method takes in a date list of a 
+			 * associated counter and return the list of all the years, months,
+			 * week, and date the counter has been clicked.
+			 * @param counterdatelist
+			 * @return
+			 */
+			public List getCountDate(List<Date> counterdatelist){
+			
+					
+							
+							// Declare all needed variables 
+							List<String> PerDate = new ArrayList<String>();
+							//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
+							Calendar cal = Calendar.getInstance();
+							List<String> datelist = new ArrayList<String>();
+							
+							// Check for counters with no counts
+							//  Return "none"as a count
+							if (counterdatelist.isEmpty() || counterdatelist == null){
+								PerDate.add("None");
+								return PerDate;
+							}
+							
+							// Extract the year, the month, the week and the date of all the dates for the counter
+							//  and stores them in a list
+							for (int it =0; it< counterdatelist.size(); it++){
+								tempdate = counterdatelist.get(it);
+								cal.setTime(tempdate);
+								year = cal.get(Calendar.YEAR);
+								month = cal.get(Calendar.MONTH);
+								date = cal.get(Calendar.DATE);
+								datelist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date));
+							}
+							
+							// Looks at all the years, months, weeks, and dates of the associated counter and append the count
+							//  into a list of strings
+							//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
+							Set<String> uniqueSet = new HashSet<String>(datelist);
+							for (String temp : uniqueSet) {
+								String[] templist = temp.split(" ");
+								String tempmonthstr = getMonthString(temp);
+								String tempdatestr = templist[2];
+								PerDate.add(tempmonthstr+" "+tempdatestr+ " -- " + String.valueOf(Collections.frequency(datelist, temp)));
+							}
+							
+							// Return the list of counts
+							return PerDate;
+						  }
 	
 	/**
 	 * Get count hour method takes in a date list of a 

@@ -35,10 +35,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * NewCounter activity allows the user to create a new counter
- * and save it to increment.
- * @author Chun-Han Lee
- *
+ * NewCounter activity allows the user to create a new counter and save it to increment.
+ * @author     Chun-Han Lee
+ * @uml.dependency   supplier="com.example.assignment1.ReadWrite"
  */
 public class NewCounter extends Activity implements OnClickListener {
 	
