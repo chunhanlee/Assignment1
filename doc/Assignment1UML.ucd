@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Assignment1UML" size="1268,1140" id="" metadata="uml2-1.0" initialized="true" scrolledY="537" tag="1000" key="32303037303533312D31303030206368756E68616E2D41737369676E6D656E74312F6368756E68616E">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.2" name="SummaryModel" location="543,842" size="157,278" id="com.example.assignment1/SummaryModel" runTimeClassModel="getCountMinut(Ljava.util.List;),getCountYear(Ljava.util.List;),getHourString(Ljava.lang.String;),dates,getCountHour(Ljava.util.List;),getCountMonth(Ljava.util.List;),getCountDate(Ljava.util.List;),getMonthString(Ljava.lang.String;),getCountWeek(Ljava.util.List;),tempdate,getWeekString(Ljava.lang.String;),dateList">
+    <children xsi:type="editmodel:CompartmentEditModel" size="123,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="dateList" id="com.example.assignment1/SummaryModel#dateList"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dates" id="com.example.assignment1/SummaryModel#dates"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tempdate" id="com.example.assignment1/SummaryModel#tempdate"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="106,162">
+      <children xsi:type="editmodel:MethodEditModel" name="getCountDate" id="com.example.assignment1/SummaryModel#getCountDate(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCountHour" id="com.example.assignment1/SummaryModel#getCountHour(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCountMinut" id="com.example.assignment1/SummaryModel#getCountMinut(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCountMonth" id="com.example.assignment1/SummaryModel#getCountMonth(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCountWeek" id="com.example.assignment1/SummaryModel#getCountWeek(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCountYear" id="com.example.assignment1/SummaryModel#getCountYear(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHourString" id="com.example.assignment1/SummaryModel#getHourString(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMonthString" id="com.example.assignment1/SummaryModel#getMonthString(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getWeekString" id="com.example.assignment1/SummaryModel#getWeekString(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/SummaryModel-Standard::Instantiate->com.example.assignment1/CounterModel*com.example.assignment1/SummaryModel-Soyatec::Import->com.example.assignment1/CounterModel" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Import»" size="104,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="75,224"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MainPage" location="50,445" size="157,98" id="com.example.assignment1/MainPage" runTimeClassModel="fILENAME,onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="fILENAME" id="com.example.assignment1/MainPage#fILENAME"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,18">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="com.example.assignment1/MainPage#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/MainPage-Standard::Call->com.example.assignment1/ReadWrite*com.example.assignment1/MainPage-Standard::Instantiate->com.example.assignment1/ReadWrite*com.example.assignment1/MainPage-Soyatec::Import->com.example.assignment1/ReadWrite" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="157,48" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,147"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.0/@sourceConnections.0 //@children.5/@sourceConnections.1" name="CounterModel" location="549,564" size="176,224" id="com.example.assignment1/CounterModel">
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="countDateList" id="com.example.assignment1/CounterModel#countDateList"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="counterCount" id="com.example.assignment1/CounterModel#counterCount"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="counterName" id="com.example.assignment1/CounterModel#counterName"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="127,108">
+      <children xsi:type="editmodel:MethodEditModel" name="getCounterCount" id="com.example.assignment1/CounterModel#getCounterCount()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCounterDateList" id="com.example.assignment1/CounterModel#getCounterDateList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCounterName" id="com.example.assignment1/CounterModel#getCounterName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCountDateList" id="com.example.assignment1/CounterModel#setCountDateList(Ljava.util.Date;Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCounterCount" id="com.example.assignment1/CounterModel#setCounterCount(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCounterName" id="com.example.assignment1/CounterModel#setCounterName(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="EditPage" location="388,50" size="157,98" id="com.example.assignment1/EditPage">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="fILENAME" id="com.example.assignment1/EditPage#fILENAME"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,18">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="com.example.assignment1/EditPage#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/EditPage-Standard::Call->com.example.assignment1/ReadWrite*com.example.assignment1/EditPage-Standard::Instantiate->com.example.assignment1/ReadWrite*com.example.assignment1/EditPage-Soyatec::Import->com.example.assignment1/ReadWrite" source="//@children.3" target="//@children.4" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="56,98" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="100,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.3/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.6/@sourceConnections.0 //@children.5/@sourceConnections.0" name="ReadWrite" location="344,346" size="157,242" id="com.example.assignment1/ReadWrite" runTimeClassModel="setCount(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;I),saveInFile(Ljava.lang.String;Ljava.lang.String;Landroid.content.Context;),renameCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;Ljava.lang.String;),loadFromFile(Ljava.lang.String;Landroid.content.Context;),newCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;),checkCounterExist(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;),deleteCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;),getCount(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;),orderedCounters(Ljava.util.List;),resetCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="123,180">
+      <children xsi:type="editmodel:MethodEditModel" name="checkCounterExist" id="com.example.assignment1/ReadWrite#checkCounterExist(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="deleteCounter" id="com.example.assignment1/ReadWrite#deleteCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCount" id="com.example.assignment1/ReadWrite#getCount(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="loadFromFile" id="com.example.assignment1/ReadWrite#loadFromFile(Ljava.lang.String;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="newCounter" id="com.example.assignment1/ReadWrite#newCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="orderedCounters" id="com.example.assignment1/ReadWrite#orderedCounters(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="renameCounter" id="com.example.assignment1/ReadWrite#renameCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="resetCounter" id="com.example.assignment1/ReadWrite#resetCounter(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveInFile" id="com.example.assignment1/ReadWrite#saveInFile(Ljava.lang.String;Ljava.lang.String;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCount" id="com.example.assignment1/ReadWrite#setCount(Ljava.lang.String;Landroid.content.Context;Ljava.lang.String;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/ReadWrite-Standard::Call->com.example.assignment1/CounterModel*com.example.assignment1/ReadWrite-Standard::Instantiate->com.example.assignment1/CounterModel*com.example.assignment1/ReadWrite-Soyatec::Import->com.example.assignment1/CounterModel" source="//@children.4" target="//@children.2" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="157,229" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,11"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SummaryPage" location="347,644" size="157,134" id="com.example.assignment1/SummaryPage" runTimeClassModel="fILENAME,countersName,curCount,onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="countersName" id="com.example.assignment1/SummaryPage#countersName"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="curCount" id="com.example.assignment1/SummaryPage#curCount"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fILENAME" id="com.example.assignment1/SummaryPage#fILENAME"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,18">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="com.example.assignment1/SummaryPage#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/SummaryPage-Standard::Call->com.example.assignment1/ReadWrite*com.example.assignment1/SummaryPage-Standard::Instantiate->com.example.assignment1/ReadWrite*com.example.assignment1/SummaryPage-Soyatec::Import->com.example.assignment1/ReadWrite" source="//@children.5" target="//@children.4" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,242"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/SummaryPage-Standard::Call->com.example.assignment1/CounterModel*com.example.assignment1/SummaryPage-Soyatec::Import->com.example.assignment1/CounterModel" source="//@children.5" target="//@children.2" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="70,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="157,67" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,147"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/SummaryPage-Standard::Call->com.example.assignment1/SummaryModel*com.example.assignment1/SummaryPage-Standard::Instantiate->com.example.assignment1/SummaryModel*com.example.assignment1/SummaryPage-Soyatec::Import->com.example.assignment1/SummaryModel" source="//@children.5" target="//@children.0" targetEnd="//@children.5/@sourceConnections.2/@children.2" label="//@children.5/@sourceConnections.2/@children.0" sourceEnd="//@children.5/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="127,134" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,32"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="NewCounter" location="627,215" size="157,98" id="com.example.assignment1/NewCounter" runTimeClassModel="fILENAME,onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="fILENAME" id="com.example.assignment1/NewCounter#fILENAME"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,18">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="com.example.assignment1/NewCounter#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/NewCounter-Standard::Call->com.example.assignment1/ReadWrite*com.example.assignment1/NewCounter-Standard::Instantiate->com.example.assignment1/ReadWrite*com.example.assignment1/NewCounter-Soyatec::Import->com.example.assignment1/ReadWrite" source="//@children.6" target="//@children.4" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,98" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="157,64"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CounterActivity" location="109,161" size="157,134" id="com.example.assignment1/CounterActivity">
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="countersName" id="com.example.assignment1/CounterActivity#countersName"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="curCount" id="com.example.assignment1/CounterActivity#curCount"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fILENAME" id="com.example.assignment1/CounterActivity#fILENAME"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,18">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="com.example.assignment1/CounterActivity#onClick(Landroid.view.View;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.example.assignment1/CounterActivity-Standard::Call->com.example.assignment1/ReadWrite*com.example.assignment1/CounterActivity-Standard::Instantiate->com.example.assignment1/ReadWrite*com.example.assignment1/CounterActivity-Soyatec::Import->com.example.assignment1/ReadWrite" source="//@children.7" target="//@children.4" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Instantiate, Call, Import»" size="129,13" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="144,134" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,42"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
