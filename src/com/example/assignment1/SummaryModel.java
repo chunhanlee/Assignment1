@@ -1,3 +1,25 @@
+/*
+Summary Model class for Assignment 1 app.
+Aggregate functions and data for a single counter regarding the date
+in which each count was logged into the application.
+    
+    License GPLv3: GNU GPL Version 3
+    <http://gnu.org/licenses/gpl.html>.
+    
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.example.assignment1;
 
 import java.util.ArrayList;
@@ -8,77 +30,91 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Dates of each counter object with the basic functional properties.
+ * The associated year, month, week, day, hour, min of each log for a 
+ * specific counter.
+ * @author Chun-Han Lee
+ *
+ */
 public class SummaryModel {
-	/**
-	 * @uml.property  name="dateList"
-	 */
+
+	// Declare all needed variables 
 	List<Date> dateList = new ArrayList<Date>();
-	/**
-	 * @uml.property  name="dates"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	CounterModel dates = new CounterModel();
-	/**
-	 * @uml.property  name="tempdate"
-	 */
 	Date tempdate = new Date();
-	/**
-	 * @uml.property  name="min"
-	 */
 	private int min;
-	/**
-	 * @uml.property  name="year"
-	 */
 	private int year;
-	/**
-	 * @uml.property  name="month"
-	 */
 	private int month;
-	/**
-	 * @uml.property  name="week"
-	 */
 	private int week;
-	/**
-	 * @uml.property  name="date"
-	 */
 	private int date;
-	/**
-	 * @uml.property  name="hour"
-	 */
 	private int hour;
+	
+	/**
+	 * Get count year method takes in a date list of a 
+	 * associated counter and returns the list of all the years
+	 * the counter has been clicked.
+	 * @param counterdatelist
+	 * @return
+	 */
 	public List<String> getCountYear(List<Date> counterdatelist){
+		
+		// Declare all needed variables 
 		List<String> PerYear = new ArrayList<String>();
 		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<Integer> yearlist = new ArrayList<Integer>();
+		
 		// Check for counters with no counts
+		//  Return "none" as count
 		if (counterdatelist.isEmpty() || counterdatelist == null){
 			PerYear.add("None");
 			return PerYear;
 		}
+		// Extract each year for the date and stores it in a list
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
 			year = cal.get(Calendar.YEAR);
 			yearlist.add(year);
 		}
+		
+		// Looks at all the years of the associated counter and append the count
+		//  into a list of strings
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<Integer> uniqueSet = new HashSet<Integer>(yearlist);
 		for (Integer temp : uniqueSet) {
 			PerYear.add("Year of "+String.valueOf(temp) + "-- " + String.valueOf(Collections.frequency(yearlist, temp)));
 		}
+		
+		// Return the list of counts 
 		return PerYear;
 	}
+	
+	/**
+	 * Get count month method takes in a date list of a 
+	 * associated counter and returns the list of all the years 
+	 * and months the counter has been clicked.
+	 * @param counterdatelist
+	 * @return
+	 */
 	public List<String> getCountMonth(List<Date> counterdatelist){
+		
+		// Declared all needed variables 
 		List<String> PerMonth = new ArrayList<String>();
 		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> monthlist = new ArrayList<String>();
+		
 		// Check for counters with no counts
+		//  Return "none" as count
 		if (counterdatelist.isEmpty() || counterdatelist == null){
 			PerMonth.add("None");
 			return PerMonth;
 		}
+		
+		// Extract the year and the month of all the dates for the counter
+		//  and stores them in a list
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -86,24 +122,44 @@ public class SummaryModel {
 			month = cal.get(Calendar.MONTH);
 			monthlist.add(String.valueOf(year)+" "+String.valueOf(month));
 		}
+		
+		// Looks at all the years and months of the associated counter and append the count
+		//  into a list of strings
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(monthlist);
 		for (String temp : uniqueSet) {
 			String tempmonthstr = getMonthString(temp);
 			PerMonth.add("Month of "+ tempmonthstr + "-- " + String.valueOf(Collections.frequency(monthlist, temp)));
 		}
+		
+		// Return the list of counts
 		return PerMonth;
 	}
+	
+	/**
+	 * Get count week method takes in a date list of a 
+	 * associated counter and return the list of all the years, month
+	 * and week the counter has been clicked.
+	 * @param counterdatelist
+	 * @return
+	 */
 	public List<String> getCountWeek(List<Date> counterdatelist){
+		
+		// Declare all needed variables 
 		List<String> PerWeek = new ArrayList<String>();
 		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> weeklist = new ArrayList<String>();
+		
 		// Check for counters with no counts
+		//  Returns "none" as count
 		if (counterdatelist.isEmpty() || counterdatelist == null){
 			PerWeek.add("None");
 			return PerWeek;
 		}
+		
+		// Extract the year, the month, and the week of all the dates for the counter
+		//  and stores them in a list
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -112,6 +168,9 @@ public class SummaryModel {
 			week = cal.get(Calendar.DAY_OF_WEEK_IN_MONTH);
 			weeklist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(week));
 		}
+		
+		// Looks at all the years, months and weeks of the associated counter and append the count
+		//  into a list of strings
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(weeklist);
 		for (String temp : uniqueSet) {
@@ -119,19 +178,35 @@ public class SummaryModel {
 			String tempweekstr = getWeekString(temp);
 			PerWeek.add(tempweekstr +" Week of " + tempmonthstr+"-- " + String.valueOf(Collections.frequency(weeklist, temp)));
 		}
-		return PerWeek;
 		
+		// Return the list of counts 
+		return PerWeek;
 	}
+	
+	/**
+	 * Get count date method takes in a date list of a 
+	 * associated counter and return the list of all the years, months,
+	 * week, and date the counter has been clicked.
+	 * @param counterdatelist
+	 * @return
+	 */
 	public List<String> getCountDate(List<Date> counterdatelist){
+		
+		// Declare all needed variables 
 		List<String> PerDate = new ArrayList<String>();
 		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> datelist = new ArrayList<String>();
+		
 		// Check for counters with no counts
+		//  Return "none"as a count
 		if (counterdatelist.isEmpty() || counterdatelist == null){
 			PerDate.add("None");
 			return PerDate;
 		}
+		
+		// Extract the year, the month, the week and the date of all the dates for the counter
+		//  and stores them in a list
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -140,6 +215,9 @@ public class SummaryModel {
 			date = cal.get(Calendar.DATE);
 			datelist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date));
 		}
+		
+		// Looks at all the years, months, weeks, and dates of the associated counter and append the count
+		//  into a list of strings
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(datelist);
 		for (String temp : uniqueSet) {
@@ -148,19 +226,35 @@ public class SummaryModel {
 			String tempdatestr = templist[2];
 			PerDate.add(tempmonthstr+" "+tempdatestr+ " -- " + String.valueOf(Collections.frequency(datelist, temp)));
 		}
-		return PerDate;
 		
+		// Return the list of counts
+		return PerDate;
 	}
+	
+	/**
+	 * Get count hour method takes in a date list of a 
+	 * associated counter and return the list of all the years, months,
+	 * week, date, and hour the counter has been clicked.
+	 * @param counterdatelist
+	 * @return
+	 */
 	public List<String> getCountHour(List<Date> counterdatelist){
+		
+		// Declare all needed variables 
 		List<String> PerHour = new ArrayList<String>();
 		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> hourlist = new ArrayList<String>();
+		
 		// Check for counters with no counts
+		//  Returns "none" as count
 		if (counterdatelist.isEmpty() || counterdatelist == null){
 			PerHour.add("None");
 			return PerHour;
 		}
+		
+		// Extract the year, the month, the week, the date and the hour of all the dates for the counter
+		//  and stores them in a list
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -170,6 +264,9 @@ public class SummaryModel {
 			hour = cal.get(Calendar.HOUR_OF_DAY);
 			hourlist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date)+ " "+String.valueOf(hour));
 		}
+		
+		// Looks at all the years, months, weeks, dates and hour of the associated counter and append the count
+		//  into a list of strings
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(hourlist);
 		for (String temp : uniqueSet) {
@@ -179,19 +276,34 @@ public class SummaryModel {
 			String temphourstr = getHourString(temp);
 			PerHour.add(tempmonthstr+" "+tempdatestr+" "+temphourstr+ " -- " + String.valueOf(Collections.frequency(hourlist, temp)));
 		}
-		return PerHour;
 		
+		// Return the list of counts 
+		return PerHour;		
 	}
+	
+	/**
+	 * Get count hour method takes in a date list of a 
+	 * associated counter and return the list of all the years, months, 
+	 * week, date, hour, and minute the counter has been clicked.
+	 * @param counterdatelist
+	 * @return
+	 */
 	public List<String> getCountMinut(List<Date> counterdatelist){
+		
+		// Declare all needed variables 
 		List<String> PerMin = new ArrayList<String>();
 		//http://stackoverflow.com/questions/7182996/java-get-month-integer-from-date
 		Calendar cal = Calendar.getInstance();
 		List<String> minlist = new ArrayList<String>();
+		
 		// Check for counters with no counts
 		if (counterdatelist.isEmpty() || counterdatelist == null){
 			PerMin.add("None");
 			return PerMin;
 		}
+		
+		// Extract the year, the month, the week, the date, the hour and the minute of all the dates for the counter
+		//  and stores them in a list
 		for (int it =0; it< counterdatelist.size(); it++){
 			tempdate = counterdatelist.get(it);
 			cal.setTime(tempdate);
@@ -202,6 +314,9 @@ public class SummaryModel {
 			min = cal.get(Calendar.MINUTE);
 			minlist.add(String.valueOf(year)+" "+String.valueOf(month)+" "+ String.valueOf(date)+ " "+String.valueOf(hour) + " "+String.valueOf(min));
 		}
+		
+		// Looks at all the years, months, weeks, dates, hour and minute of the associated counter and append the count
+		//  into a list of strings
 		//http://www.mkyong.com/java/how-to-count-duplicated-items-in-java-list/
 		Set<String> uniqueSet = new HashSet<String>(minlist);
 		for (String temp : uniqueSet) {
@@ -219,13 +334,24 @@ public class SummaryModel {
 			
 			PerMin.add(tempmonthstr+" "+tempdatestr+" "+temphourstr2+ " -- " + String.valueOf(Collections.frequency(minlist, temp)));
 		}
-		return PerMin;
 		
+		// Return the list of counts 
+		return PerMin;
 	}
+	
+	/**
+	 * Get month string method takes in a string parse the string
+	 * return the three letter month of the associated date. 
+	 * @param mstr
+	 * @return
+	 */
 	public String getMonthString(String mstr){
+		// Parse string 
 		String str = null;
 		String[] templist = mstr.split(" ");
 		String i = templist[1];
+		
+		// Check what integer is associated with the month
 		if (i.equals("0")){
 			str = "Jan";
 		}
@@ -262,12 +388,26 @@ public class SummaryModel {
 		if (i.equals("11")){
 			str = "Dec";
 		}
+		
+		// Returned associated string
 		return str;
 	}
+	
+	/**
+	 * Get week string method takes in a string 
+	 * parse the string return the associated week of the 
+	 * given date
+	 * @param wstr
+	 * @return
+	 */
 	public String getWeekString(String wstr){
+		
+		// Parse the string 
 		String str = null;
 		String[] templist = wstr.split(" ");
 		String i = templist[2];
+		
+		// Check the associated week with the date
 		if (i.equals("1")){
 			str = "1st";
 		}
@@ -280,12 +420,26 @@ public class SummaryModel {
 		if (i.equals("4")){
 			str = "4th";
 		}
+		
+		// Return associated string 
 		return str;
 	}
+	
+	/**
+	 * Get hour string method takes in a string 
+	 * parse the string return the associated hour of the 
+	 * given date 
+	 * @param hstr
+	 * @return
+	 */
 	public String getHourString(String hstr){
+		
+		// Parse the given string
 		String str = null;
 		String[] templist = hstr.split(" ");
 		String i = templist[3];
+		
+		// Check the associated hours on a 24 hour clock
 		if (i.equals("1") || i.equals("13")){
 			if (i.equals("1")){
 				str = "1:00 AM";
@@ -370,6 +524,8 @@ public class SummaryModel {
 				str = "12:00 PM";
 			}
 		}
+		
+		// Return associated string
 		return str;
 	}
 }

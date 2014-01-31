@@ -23,6 +23,7 @@ package com.example.assignment1;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 /**
  * Counter object with the basic functional properties.
  * The name of the counter, the number of counts of the counter,
@@ -33,17 +34,8 @@ import java.util.List;
  */
 public class CounterModel {
 	// Declare all needed variables of the counter model
-	/**
-	 * @uml.property  name="counterName"
-	 */
 	private String counterName;
-	/**
-	 * @uml.property  name="counterCount"
-	 */
 	private int counterCount;
-	/**
-	 * @uml.property  name="countDateList"
-	 */
 	private List<Date> countDateList = new ArrayList<Date>();
 	
 	/**
@@ -100,5 +92,6 @@ public class CounterModel {
 		list.add(cDate);
 		countDateList = list;
 	}
+
 
 }

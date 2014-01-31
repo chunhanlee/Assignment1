@@ -258,5 +258,5 @@ public class EditPage extends Activity implements OnClickListener {
 			alert4.show();
 			break;
 		}
-	}		
+	}	
 }

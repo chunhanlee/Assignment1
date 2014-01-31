@@ -42,18 +42,8 @@ import android.widget.TextView;
 public class CounterActivity extends Activity implements OnClickListener {
 
 	// Declared all needed variables
-	/**
-	 * @uml.property  name="count"
-	 * @uml.associationEnd  
-	 */
 	private TextView count;
-	/**
-	 * @uml.property  name="curCount"
-	 */
 	int curCount = 0;
-	/**
-	 * @uml.property  name="countersName"
-	 */
 	String countersName;
 	static final String FILENAME = "file2.json";
 	
@@ -154,5 +144,4 @@ public class CounterActivity extends Activity implements OnClickListener {
 			break;
 		}
 	}
-
 }
