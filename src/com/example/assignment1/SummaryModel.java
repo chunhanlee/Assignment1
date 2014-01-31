@@ -192,7 +192,7 @@ public class SummaryModel {
 			 * @param counterdatelist
 			 * @return
 			 */
-			public List getCountDate(List<Date> counterdatelist){
+			public List<String> getCountDate(List<Date> counterdatelist){
 			
 					
 							
