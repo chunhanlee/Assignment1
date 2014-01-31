@@ -64,11 +64,11 @@ public class MainPage extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_page);
 		
-		// Look for the button clicker and set onclicklistener
+		// Setup the button clicker and set onclicklistener
 		Button button = (Button) findViewById(R.id.clicker);
 		button.setOnClickListener(this);
 		
-		// Set up the array adapter and populate the list view to list 
+		// Setup the array adapter and populate the list view to list 
 		//  all the adapters 
 		//http://stackoverflow.com/questions/8833514/populate-listview-with-dynamic-array
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outlist);
@@ -76,7 +76,7 @@ public class MainPage extends Activity implements OnClickListener {
 		lv.setAdapter(adapter);
 		((BaseAdapter) adapter).notifyDataSetChanged();
 
-		// Set up the onitemclicklistener so that one a counter is clicked on the list
+		// Setup the onitemclicklistener so that one a counter is clicked on the list
 		//  then transition to the counter activity with the associated information 
 		//  about the counter while passing in the counter name. 
 		//http://www.androidhive.info/2011/10/android-listview-tutorial/
