@@ -41,7 +41,6 @@ public class CounterModel {
 	/**
 	 * Getter for the number of counts for the counter
 	 * @return  counts for the specific counter
-	 * @uml.property  name="counterCount"
 	 */
 	public int getCounterCount() {
 		return counterCount;
@@ -50,7 +49,6 @@ public class CounterModel {
 	/**
 	 * Setter for the number of counts for the counter
 	 * @param counterCount  set the counts for the counter
-	 * @uml.property  name="counterCount"
 	 */
 	public void setCounterCount(int counterCount) {
 		this.counterCount = counterCount;
@@ -59,7 +57,6 @@ public class CounterModel {
 	/**
 	 * Getter for the counter's name
 	 * @return  counters name
-	 * @uml.property  name="counterName"
 	 */
 	public String getCounterName() {
 		return counterName;
@@ -68,7 +65,6 @@ public class CounterModel {
 	/**
 	 * Setter for the counter's name
 	 * @param counterName  set the counter's name
-	 * @uml.property  name="counterName"
 	 */
 	public void setCounterName(String counterName) {
 		this.counterName = counterName;

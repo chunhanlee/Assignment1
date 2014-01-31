@@ -181,7 +181,7 @@ public class EditPage extends Activity implements OnClickListener {
 					alert2.show();
 				}
 			}else{
-				
+	
 					// Else if counter exists then show alert message for no action
 					alert.show();
 			}
