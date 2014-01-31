@@ -44,18 +44,8 @@ import android.widget.TextView;
 public class EditPage extends Activity implements OnClickListener {
 	
 	// Declared all needed variables 
-	/**
-	 * @uml.property  name="counterName"
-	 * @uml.associationEnd  
-	 */
 	private EditText counterName;
-	/**
-	 * @uml.property  name="cName"
-	 */
 	private String cName;
-	/**
-	 * @uml.property  name="oldcountersName"
-	 */
 	private String oldcountersName;
 	static final String FILENAME = "file2.json";
 	
@@ -93,14 +83,12 @@ public class EditPage extends Activity implements OnClickListener {
 		//http://stackoverflow.com/questions/4590957/how-to-set-text-in-an-edittext
 		counterName = (EditText) findViewById(R.id.counterName);
 		counterName.setText(oldcountersName, TextView.BufferType.EDITABLE);
-		
 	}
 
 	/**
 	 * Called once any of the button specified above is clicked
 	 * Then catch which button was clicked to respond respectfully.
 	 */
-	
 	@Override
 	public void onClick(final View arg0) {
 		
@@ -168,17 +156,34 @@ public class EditPage extends Activity implements OnClickListener {
 			  }
 			});
 			
+			// Create the alert dialog if there is no input as a name 
+			AlertDialog.Builder alert5 = new AlertDialog.Builder(this);
+			alert5.setTitle("No name specified!");
+			alert5.setMessage("Counter not created! There is no name specified for the counter!");
+			alert5.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// Cancel.
+			  }
+			});
 			
 			// Check if counter already exists
 			countexist = checkcounter.checkCounterExist(FILENAME, c, cName);
 			if (countexist == false){
-				// If counter does not exist then rename the old counter name to new counter name
-				//  show alert message to transition back to counter activity page.
-				save.renameCounter(FILENAME, c, cName, oldcountersName);
-				alert2.show();
+				
+				if (cName.equals("")){
+					
+					// Show alert message for no input as counter name
+					alert5.show();
+				}else {
+					// If counter does not exist then rename the old counter name to new counter name
+					//  show alert message to transition back to counter activity page.
+					save.renameCounter(FILENAME, c, cName, oldcountersName);
+					alert2.show();
+				}
 			}else{
-				// Else if counter exists then show alert message for no action
-				alert.show();
+				
+					// Else if counter exists then show alert message for no action
+					alert.show();
 			}
 			break;
 			

@@ -119,7 +119,17 @@ public class NewCounter extends Activity implements OnClickListener {
 			  }
 			});
 			
-			// Instanciate the classes
+			// Create the alert dialog if there is no input as a name 
+			AlertDialog.Builder alert3 = new AlertDialog.Builder(this);
+			alert3.setTitle("No name specified!");
+			alert3.setMessage("Counter not created! There is no name specified for the counter!");
+			alert3.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				// Cancel.
+			  }
+			});
+			
+			// Instantiate the classes
 			Context c = getApplication();
 			ReadWrite checkcounter = new ReadWrite();
 			ReadWrite newcount = new ReadWrite();
@@ -130,14 +140,20 @@ public class NewCounter extends Activity implements OnClickListener {
 			
 			
 			if (countexist == false){
-				// Counter does not exist and write the new counter
-				// show corresponding alert
-				newcount.newCounter(FILENAME, c, cName);
-				alert2.show();
-				break;
+				if (cName.equals("")){
+					// Show unsuccessful alert dialog for no entry
+					alert3.show();
+				}else {
+					// Counter does not exist and write the new counter
+					// show corresponding alert
+					newcount.newCounter(FILENAME, c, cName);
+					alert2.show();
+					break;
+				}
 			}else{
-				// Show unsuccessful alert dialog
+				// Show unsuccessful alert dialog for counter exists
 				alert.show();
+				
 			}
 		}
 	}	

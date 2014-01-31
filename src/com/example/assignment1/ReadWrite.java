@@ -407,7 +407,6 @@ public class ReadWrite {
 	 * @param countList
 	 * @return
 	 */
-
 	public List<String> orderedCounters(List<CounterModel> countList){
 		
 		// Sort the collection
